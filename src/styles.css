@@ -322,6 +322,26 @@ body{
     padding-top: 0px;
     line-height: 10px;
 }
-.position-panel .position-button.active{
-	background: green;
+.position-panel .without-style{
+    padding-left: 10px; 
 }
+.position-panel .position-button{
+    border: none;
+    width: 44px;
+    height: 30px;
+    margin-left: 5px;
+}
+.position-panel .position-button#position-left{    
+    background: url('./images/kitchen/icons-s18899eded5.png') 0 -1559px no-repeat;
+}
+.position-panel .position-button#position-center{    
+    background: url('./images/kitchen/icons-s18899eded5.png') 0 -1732px no-repeat;
+}
+.position-panel .position-button#position-right{    
+    background: url('./images/kitchen/icons-s18899eded5.png') 0 -1599px no-repeat;
+}
+
+.position-panel .position-button.active, .position-panel .position-button:hover{    
+    opacity: 0.4;
+}
+

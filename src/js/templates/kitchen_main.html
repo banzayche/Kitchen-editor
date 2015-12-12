@@ -37,9 +37,11 @@
 <div id='control-panel' class="pull-right col-sm-3 col-md-3 col-xs-3">
 	<div class="position-panel col-sm-12 col-md-12 col-xs-12">
 		<h4 class="text-center">POSITION</h4>
-		<button class="position-button <%if(position === 'l_position'){%>active<%}%>" id="position-left">left</button>
-		<button class="position-button <%if(position === 'c_position'){%>active<%}%>" id="position-center">center</button>
-		<button class="position-button <%if(position === 'r_position'){%>active<%}%>" id="position-right">right</button>
+		<div class="without-style">
+			<button class="position-button <%if(position === 'l_position'){%>active<%}%>" id="position-left"></button>
+			<button class="position-button <%if(position === 'c_position'){%>active<%}%>" id="position-center"></button>
+			<button class="position-button <%if(position === 'r_position'){%>active<%}%>" id="position-right"></button>
+		</div>
 	</div>
 	<div class="color-panel col-sm-12 col-md-12 col-xs-12">
 		<h4 class="text-center">COLOR</h4>
