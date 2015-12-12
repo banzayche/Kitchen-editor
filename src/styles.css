@@ -91,7 +91,9 @@ body{
 	width: 100%;
 	height: 100%;
 }
-
+.l_position #crop-area{
+    left: -155px;
+}
 /*left-b*/
 .l_position.rotate-side .rotate_bg{
 	width: 100px;
@@ -118,6 +120,9 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
+.l_position.rotate-side #crop-area{
+    left: 0px;
+}
 .l_position.rotate-side .k_wall{
 	width: 406px;
     left: 67px;
@@ -142,9 +147,8 @@ body{
     top: 321px;
     left: 81px;
 }
-#parent-draggable>#draggable{
-	width: 100%;
-	height: 100%;
+.c_position #crop-area{
+    left: -145px;
 }
 /*================position right=================*/
 .r_position .k_wall{
@@ -157,10 +161,6 @@ body{
     position: absolute;
     top: 314px;
     left: 80px;
-}
-#parent-draggable>#draggable{
-	width: 100%;
-	height: 100%;
 }
 
 .r_position.rotate-main .rotate_bg{
@@ -188,7 +188,9 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-
+.r_position #crop-area{
+    left: 0px;
+}
 /*right-b*/
 .r_position.rotate-side .rotate_bg{
 	width: 100px;
@@ -223,7 +225,9 @@ body{
     width: 306px;
     left: 152px;
 }
-
+.r_position.rotate-side #crop-area{
+    left: -444px;
+}
 /*==============controls=================*/
 .position-panel .position-button.active{
 	background: green;
