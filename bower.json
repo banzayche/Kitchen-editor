@@ -1,0 +1,16 @@
+{
+  "name": "kitchen",
+  "version": "0.0.3",
+  "main": [
+    "main.js"
+  ],
+  "ignore": [],
+  "dependencies": {},
+  "devDependencies": {
+    "backbone.marionette": "marionette#~2.4.4",
+    "bootstrap": "~3.3.6",
+    "jquery-ui": "~1.11.4",
+    "requirejs": "~2.1.22",
+    "text": "requirejs-text#~2.0.14"
+  }
+}

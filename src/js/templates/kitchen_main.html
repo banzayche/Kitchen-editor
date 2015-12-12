@@ -1,0 +1,58 @@
+<h2 class="text-center">ВЫБОР КАРТИНКИ И КАЛЬКУЛЯЦИЯ ФАРТУКА</h2>
+<div id='canvas-kitchen' class="<%=position%> <%=rotate%>">
+	<!-- if it's lateral panel - it cans rotate -->
+	<%if(can_rotate === true){%>
+		<div class="rotate_bg"></div>
+		<div class="rotate">Click to change side</div>
+	<%}%>
+	<!-- /end -->
+	<div class="kitchen-panel" style="background: url(<%=kitcehn_bg%>);"></div>
+
+	<div id="parent-draggable">
+		<div id="draggable" class=""></div>
+	</div>
+	<div class="k_wall">
+		<div id="crop-area">
+			<style>
+				#main-poster{
+					transform: scale(<%= scale %>) !important;
+					-webkit-transform: scale(<%= scale %>) !important;
+					-moz-transform: scale(<%= scale %>) !important;
+					-ms-transform: scale(<%= scale %>) !important;										
+					top: <%= top_place %>px;
+				}
+				<%if(scale_mirrow === true){%>
+					#crop-area{
+						transform: scale(-1, 1);
+						-webkit-transform: scale(-1, 1);
+						-moz-transform: scale(-1, 1);
+						-ms-transform: scale(-1, 1);
+					}					
+				<%}%>
+			</style>
+			<img id="main-poster" style="display:block;" src="<%=poster%>">		
+		</div>		
+	</div>
+</div>
+<div id='control-panel' class="col-sm-12 col-md-12 col-xs-12">
+	<div class="position-panel col-sm-6 col-md-6 col-xs-6">
+		<span><b>POSITION</b></span>
+		<button class="position-button <%if(position === 'l_position'){%>active<%}%>" id="position-left">left</button>
+		<button class="position-button <%if(position === 'c_position'){%>active<%}%>" id="position-center">center</button>
+		<button class="position-button <%if(position === 'r_position'){%>active<%}%>" id="position-right">right</button>
+	</div>
+	<div class="color-panel col-sm-6 col-md-6 col-xs-6">
+		<span><b>COLOR</b></span>
+		<button class="color-button <%if(current_color_of_panel === 'color1'){%>active<%}%>" id="color1">one</button>
+		<button class="color-button <%if(current_color_of_panel === 'color2'){%>active<%}%>" id="color2">two</button>
+		<button class="color-button <%if(current_color_of_panel === 'color3'){%>active<%}%>" id="color3">three</button>
+		<button class="color-button <%if(current_color_of_panel === 'color4'){%>active<%}%>" id="color4">four</button>
+	</div>
+	<div class="scale-panel col-sm-6 col-md-6 col-xs-6">
+		<button class="scale-button" id="minus">-</button>
+		<button class="scale-button" id="plus">+</button>
+	</div>
+	<div class="mirrow-panel col-sm-6 col-md-6 col-xs-6">
+		<button class="mirrow-button">Mirrow</button>
+	</div>
+</div>
