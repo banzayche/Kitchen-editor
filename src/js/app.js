@@ -1,4 +1,4 @@
-define(['kitchen', 'jquery', 'underscore', 'backbonewreqr', 'backbonebabysitter', 'backbone', 'backbonemarionette'], function(kitchenMainView) {
+define(['kitchen', 'jquery', 'jquery-ui', 'underscore', 'backbonewreqr', 'backbonebabysitter', 'backbone', 'backbonemarionette'], function(kitchenMainView) {
 	var deferred = Marionette.Deferred();
 	var mainApp;
 	
