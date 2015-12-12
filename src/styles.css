@@ -6,7 +6,7 @@ body{
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	height: 678px;
-	width: 960px;
+	width: 915px;
 	margin: 20px auto;
 	position: relative;  
 }
@@ -243,6 +243,7 @@ body{
     padding-top: 10px; 
     padding-left: 21px;
     margin: 0 auto;
+    margin-right: 10px;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.38);
     -webkit-box-shadow: 0 1px 0 white, inset 0 1px 3px rgba(0, 0, 0, 0.45);
