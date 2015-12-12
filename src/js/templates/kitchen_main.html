@@ -3,7 +3,7 @@
 	<!-- if it's lateral panel - it cans rotate -->
 	<%if(can_rotate === true){%>
 		<div class="rotate_bg"></div>
-		<div class="rotate">Click to change side</div>
+		<div class="rotate text-center"><i></i><br><span class="text-on-button">Посмотреть эту сторону</span></div>
 	<%}%>
 	<!-- /end -->
 	<div class="kitchen-panel" style="background: url(<%=kitcehn_bg%>);"></div>
@@ -37,7 +37,7 @@
 </div>
 <div id='control-panel' class="pull-right col-sm-3 col-md-3 col-xs-3">
 	<div class="position-panel col-sm-12 col-md-12 col-xs-12">
-		<h4 class="text-center">POSITION</h4>
+		<h4 class="text-center">Тип кухни</h4>
 		<div class="without-style">
 			<button class="position-button <%if(position === 'l_position'){%>active<%}%>" id="position-left"></button>
 			<button class="position-button <%if(position === 'c_position'){%>active<%}%>" id="position-center"></button>
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 	<div class="color-panel col-sm-12 col-md-12 col-xs-12">
-		<h4 class="text-center">COLOR</h4>
+		<h4 class="text-center">Цвет кухни</h4>
 		<div class="into-style">
 			<button class="color-button <%if(current_color_of_panel === 'color1'){%>active<%}%>" id="color1"></button>
 			<button class="color-button <%if(current_color_of_panel === 'color2'){%>active<%}%>" id="color2"></button>
@@ -54,13 +54,13 @@
 		</div>
 	</div>
 	<div class="getimg-panel col-sm-12 col-md-12 col-xs-12">
-		<button class="spec-button">Another img</button>
+		<button class="spec-button text-on-button"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;&nbsp;Выбери фото</button>
 	</div>
 	<div class="scale-panel col-sm-12 col-md-12 col-xs-12">
 		<button class="scale-button spec-button" id="minus">-</button>
 		<button class="scale-button spec-button" id="plus">+</button>
 	</div>
 	<div class="mirrow-panel col-sm-12 col-md-12 col-xs-12">
-		<button class="mirrow-button spec-button">Mirrow</button>
+		<button class="mirrow-button spec-button text-on-button"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;&nbsp;Повернуть фото</button>
 	</div>
 </div>
