@@ -34,25 +34,30 @@
 		</div>		
 	</div>
 </div>
-<div id='control-panel' class="col-sm-12 col-md-12 col-xs-12">
-	<div class="position-panel col-sm-6 col-md-6 col-xs-6">
-		<span><b>POSITION</b></span>
+<div id='control-panel' class="pull-right col-sm-3 col-md-3 col-xs-3">
+	<div class="position-panel col-sm-12 col-md-12 col-xs-12">
+		<h4 class="text-center">POSITION</h4>
 		<button class="position-button <%if(position === 'l_position'){%>active<%}%>" id="position-left">left</button>
 		<button class="position-button <%if(position === 'c_position'){%>active<%}%>" id="position-center">center</button>
 		<button class="position-button <%if(position === 'r_position'){%>active<%}%>" id="position-right">right</button>
 	</div>
-	<div class="color-panel col-sm-6 col-md-6 col-xs-6">
-		<span><b>COLOR</b></span>
-		<button class="color-button <%if(current_color_of_panel === 'color1'){%>active<%}%>" id="color1">one</button>
-		<button class="color-button <%if(current_color_of_panel === 'color2'){%>active<%}%>" id="color2">two</button>
-		<button class="color-button <%if(current_color_of_panel === 'color3'){%>active<%}%>" id="color3">three</button>
-		<button class="color-button <%if(current_color_of_panel === 'color4'){%>active<%}%>" id="color4">four</button>
+	<div class="color-panel col-sm-12 col-md-12 col-xs-12">
+		<h4 class="text-center">COLOR</h4>
+		<div class="into-style">
+			<button class="color-button <%if(current_color_of_panel === 'color1'){%>active<%}%>" id="color1"></button>
+			<button class="color-button <%if(current_color_of_panel === 'color2'){%>active<%}%>" id="color2"></button>
+			<button class="color-button <%if(current_color_of_panel === 'color3'){%>active<%}%>" id="color3"></button>
+			<button class="color-button <%if(current_color_of_panel === 'color4'){%>active<%}%>" id="color4"></button>
+		</div>
 	</div>
-	<div class="scale-panel col-sm-6 col-md-6 col-xs-6">
-		<button class="scale-button" id="minus">-</button>
-		<button class="scale-button" id="plus">+</button>
+	<div class="getimg-panel col-sm-12 col-md-12 col-xs-12">
+		<button class="spec-button">Another img</button>
 	</div>
-	<div class="mirrow-panel col-sm-6 col-md-6 col-xs-6">
-		<button class="mirrow-button">Mirrow</button>
+	<div class="scale-panel col-sm-12 col-md-12 col-xs-12">
+		<button class="scale-button spec-button" id="minus">-</button>
+		<button class="scale-button spec-button" id="plus">+</button>
+	</div>
+	<div class="mirrow-panel col-sm-12 col-md-12 col-xs-12">
+		<button class="mirrow-button spec-button">Mirrow</button>
 	</div>
 </div>
