@@ -8,6 +8,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 		current_color_of_panel: void 0,
 		scale: void 0,
 		top_place: void 0,
+		left_place: void 0,
 		scale_mirrow: void 0,
 
 		_changeScale: function(data){
@@ -58,6 +59,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 				poster: data.default_poster,
 				scale: data.scale,
 				top_place: data.top_place,
+				left_place: data.left_place,
 				scale_mirrow: data.scale_mirrow
 			});
 		},		
@@ -185,9 +187,9 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			});
 			// wip
 
-			this.mainApp.vent.trigger("change_image", function(){
-				return './src/images/posters/puuviljad-murul1.jpg';
-			});
+			// this.mainApp.vent.trigger("change_image", function(){
+			// 	return './src/images/posters/puuviljad-murul1.jpg';
+			// });
 		},
 		_changeScale: function(e){
 			var target = e.target.id;
@@ -201,17 +203,20 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			setTimeout(function() {
 				$('#draggable').draggable({
 					drag: function(event, ui) {						
-					    ui.position.left = 0;
+					    // ui.position.left = 0;
 					    // ceep position for image
 					    var image = $('#main-poster');
 					    ui.ceep = {};
 					    ui.ceep.top = ui.position.top;
+					    ui.ceep.left = ui.position.left;
 					    
 					    self.model.set({
-					    	top_place: ui.ceep.top
+					    	top_place: ui.ceep.top,
+					    	left_place: ui.ceep.left
 					    });
 
-					    image.css('top', ui.ceep.top);
+					    // image.css('top', ui.ceep.top);
+					    // image.css('left', ui.ceep.left);
 					    // none draggable cube
 					    ui.position.left = ui.originalPosition.left;
 					    ui.position.top = ui.originalPosition.top;

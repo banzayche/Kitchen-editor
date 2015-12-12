@@ -10,6 +10,7 @@ define(['kitchen', 'jquery', 'underscore', 'backbonewreqr', 'backbonebabysitter'
 		default_poster: './src/images/posters/punased-ounad-korvidega1.png',
 		scale: 1,
 		top_place: 0,
+		left_place: 0,
 		scale_mirrow: false
 	};
 	var layoutView = new kitchenMainView(default_paths_images);

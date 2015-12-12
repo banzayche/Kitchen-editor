@@ -19,7 +19,8 @@
 					-webkit-transform: scale(<%= scale %>) !important;
 					-moz-transform: scale(<%= scale %>) !important;
 					-ms-transform: scale(<%= scale %>) !important;										
-					top: <%= top_place %>px;
+					top: <%= top_place %>px !important;
+					left: <%= left_place %>px !important;
 				}
 				<%if(scale_mirrow === true){%>
 					#crop-area{
