@@ -22,7 +22,7 @@ define(function() {
 			content: [
 				{
 					name: 'суп',
-					src: './src/images/posters/laimid_sidrun_munt_mustal_taustal1.jpg'
+					src: './src/images/posters/puuviljad-murul1.jpg'					
 				}, {
 					name: 'Борщь',
 					src: './src/images/posters/Laim-jaaga1.jpg'
@@ -31,7 +31,7 @@ define(function() {
 					src: './src/images/posters/punased-ounad-korvidega1.png'
 				}, {
 					name: 'Шурпа222',
-					src: './src/images/posters/puuviljad-murul1.jpg'
+					src: './src/images/posters/laimid_sidrun_munt_mustal_taustal1.jpg'
 				}
 			]
 		}, {

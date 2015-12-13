@@ -3,10 +3,16 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 	var AppLayoutView = Marionette.LayoutView.extend({
 		template: _.template(choose_image_template),
 		ui: {
-			close_list: '#close-list-img'
+			close_list: '#close-list-img',
+			category_button: '.accord_menu_ul button'
 		},
 		events: {
-			'click @ui.close_list': '_closeListImg'
+			'click @ui.close_list': '_closeListImg',
+			'click @ui.category_button': '_getCategory'
+		},
+		_getCategory: function(e){
+			this.currentTheme = $(e.target).attr('data-category');
+			this._showView();
 		},
 		_closeListImg: function(){
 			console.log('close')
@@ -20,6 +26,13 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		},
 		currentTheme: 0,
 		onRender: function(){
+			this._showView()
+			// this.list_area.show(new Marionette.CollectionView({
+			// 	childView: item_list_view,
+			// 	collection: new Backbone.Collection(img_collection)
+			// }));
+		},
+		_showView: function(){
 			var self = this;
 			var item_img_view = Marionette.ItemView.extend({
 				mainApp: self.mainApp,
@@ -28,7 +41,7 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 					image: 'img'
 				},
 				events: {
-					'click @ui.image': '_getSrc'					
+					'click': '_getSrc'					
 				},
 				_getSrc: function(){
 					var src = this.model.get('src');
@@ -42,11 +55,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 				childView: item_img_view,
 				collection: new Backbone.Collection(img_collection[this.currentTheme].content)
 			}));
-
-			// this.list_area.show(new Marionette.CollectionView({
-			// 	childView: item_list_view,
-			// 	collection: new Backbone.Collection(img_collection)
-			// }));
 		}
 	});
 

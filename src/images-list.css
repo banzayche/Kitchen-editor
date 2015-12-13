@@ -7,8 +7,13 @@
     top: 0;
     left: 0;
     right: 0;
-    border: 1px dotted black;
-    background-color: white;  
+    background-color: white;
+    font-family: "Roboto Condensed", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#images_list a{
+	color: black;
 }
 #images_list .nav.nav-justified{
 	text-transform: uppercase;
@@ -18,20 +23,25 @@
 	border-radius: 0px;
 	line-height: 2.8;
 }
+#images_list .tab-content{
+	overflow: auto;
+	height: 615px;
+	padding: 20px; 
+}
 .none-padd{
 	padding: 0px;
 }
 .right-border{
-	border-right: 1px dotted black; 
+	border-right: 1px solid rgba(4,4,4,.2); 
 }
 
 .container-close-button{
 	height: 59px;
-	border-bottom: 1px dotted black; 
+	border-bottom: 1px solid rgba(4,4,4,.2);
 }
 #close-list-img{
 	position: absolute;
-    top: 20px;
+    top: 17px;
     right: 21px;
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -1255px no-repeat;
     width: 25px;
@@ -39,16 +49,90 @@
     cursor: pointer;
     border: none; 
 }
-
-.tab-content{
-	height: 616px;	
-    overflow: auto;
+.paret{
+	position: relative;
+	margin-top: 20px;
+}
+.cover-all{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	cursor: pointer;
+}
+.absolute-img-name{
+	position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 150px;
+    text-align: center;
+    background: rgba(4,4,4,.5);
+    color: white;
+    font-size: 18px;
+    line-height: 2.5;
+    cursor: pointer;
+    z-index: 19;
+}
+.cover-all:hover+.absolute-img-name{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 19;
+}
+.cover-all:hover+.absolute-img-name>span{
+	display: block;
+	position: absolute;
+	width:300px;
+	height: 40px;
+	line-height: 40px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: red;
+	border-radius: 20px;
+    background-color: rgba(4, 4, 4, 0.8);
+    -webkit-box-shadow: 0 1px 0 white, inset 0 1px 3px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0 1px 0 white, inset 0 1px 3px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 1px 0 white, inset 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+.item-image{
+	display: block;
+	width: 100%; 
+    cursor: pointer;
+	height: 200px;
 }
 /*accord*/
 .accord_container{
-	padding: 0;
+	padding: 0; 
 	height: 616px;
     overflow: auto;
+    margin-top: -2px;
+}
+#accord_container .panel-body{
+	padding: 0; 
+}
+#accord_container .panel-group .panel+.panel{
+	margin-top: 0;
+}
+#accord_container .panel-group .panel{
+	border-radius: 0;
+}
+.accord_menu_ul{
+	list-style: none;
+	padding: 0;
+	margin: 0; 
+}
+.accord_menu_ul button{
+	display: block;
+    padding: 0;
+    border-bottom: 1px solid rgba(4,4,4,.2);
+    background: none;
+    padding: 10px;  
 }
 .accord_btn{
 	width: 100%;
