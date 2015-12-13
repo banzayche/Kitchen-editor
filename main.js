@@ -12,6 +12,8 @@ requirejs.config({
         'text': '../bower_components/text/text',
         'jquery-ui': '../bower_components/jquery-ui/jquery-ui.min',
         'kitchen': './js/views/kitchen',
+        'choose_image': './js/views/choose-image',
+        'img_collection': './js/collections/img_collection',
         'app': './js/app'
         // 'app': '../dist/app'
     },

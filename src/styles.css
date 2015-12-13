@@ -2,6 +2,7 @@ body{
 	background: rgba(4,4,4,.1);
 }
 #main-kitchen{
+    opacity: .2;
 	background: url(./images/kitchenbg.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -409,4 +410,6 @@ body{
     color: #353535;
     line-height: 1.2;
 }
+
+
 

@@ -1,9 +1,9 @@
-define(['kitchen', 'jquery', 'jquery-ui', 'underscore', 'backbonewreqr', 'backbonebabysitter', 'backbone', 'backbonemarionette'], function(kitchenMainView) {
+define(['kitchen', 'choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbonewreqr', 'backbonebabysitter', 'backbone', 'backbonemarionette'], function(kitchenMainView, chooseImageView) {
 	var deferred = Marionette.Deferred();
 	var mainApp;
 	
 	_.result(deferred, 'promise').then(function (target) {
-	    console.log("Hello, " + target + "!");
+	    // console.log("Hello, " + target + "!");
 	    mainApp.start();
 	});
 
@@ -23,17 +23,39 @@ define(['kitchen', 'jquery', 'jquery-ui', 'underscore', 'backbonewreqr', 'backbo
 			scale_mirrow: false
 		};
 		var layoutView = new kitchenMainView(default_paths_images);
+		var imagesView = new chooseImageView();
 
 		mainApp = new Marionette.Application({
 			mainView: layoutView,
+			imagesListView: imagesView,
 			regions: {
-				aRegion: "#area-kitchen"
+				aRegion: "#area-kitchen",
+				bRegion: "#images_list"
 			}
 		});
 		mainApp.addInitializer(function(options){
 			layoutView.mainApp = mainApp;
 			mainApp.getRegion('aRegion').show(layoutView);
+			mainApp.getRegion('bRegion').show(imagesView);			
 		});
+
+		function hide_show(){
+			$(mainApp.imagesListView.el).hide();
+			setTimeout(function() {
+				console.log(mainApp.mainView.el);
+				$(mainApp.mainView.el).hide();
+				$(mainApp.imagesListView.el).show();
+				// mainApp.getRegion('aRegion').show(imagesView);
+			}, 2000);
+			setTimeout(function() {
+				console.log(mainApp.mainView.el);
+				$(mainApp.imagesListView.el).hide();
+				$(mainApp.mainView.el).show();
+				// mainApp.getRegion('aRegion').show(layoutView);
+			}, 3000);
+		}
+
+
 		mainApp.vent.on("change_image", function(someData){
 			var image = someData();
 			mainApp.mainView.model.set({
