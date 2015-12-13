@@ -76,7 +76,9 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			// scale
 			scale_button: '#control-panel .scale-button',
 			// mirrow
-			mirrow_button: '.mirrow-panel .mirrow-button'
+			mirrow_button: '.mirrow-panel .mirrow-button',
+			// open imgs
+			open_img_button: '#choose_img_button'
 		},
 		modelEvents: {
 			"change": "render"
@@ -93,7 +95,14 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			// scale
 			'click @ui.scale_button': '_changeScale',
 			// mirrow
-			'click @ui.mirrow_button': '_getMirrow'
+			'click @ui.mirrow_button': '_getMirrow',
+			// images
+			'click @ui.open_img_button': '_openImageList'
+		},
+		_openImageList: function(){
+			this.mainApp.vent.trigger("open_images_list", function(){
+				return 'images open';
+			});
 		},
 		_getLeftKitchen: function() {
 			var kitchen = this._checkPathPanel('k1');

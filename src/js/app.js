@@ -27,6 +27,7 @@ define(['kitchen', 'choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbon
 
 		mainApp = new Marionette.Application({
 			mainView: layoutView,
+			imagesView: imagesView,
 			imagesListView: imagesView,
 			regions: {
 				aRegion: "#area-kitchen",
@@ -35,16 +36,18 @@ define(['kitchen', 'choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbon
 		});
 		mainApp.addInitializer(function(options){
 			layoutView.mainApp = mainApp;
+			imagesView.mainApp = mainApp;
 			mainApp.getRegion('aRegion').show(layoutView);
-			mainApp.getRegion('bRegion').show(imagesView);			
+			mainApp.getRegion('bRegion').show(imagesView);
+			$(mainApp.imagesListView.el).parent().hide();			
 		});
 
 		function hide_show(){
 			$(mainApp.imagesListView.el).hide();
 			setTimeout(function() {
 				console.log(mainApp.mainView.el);
-				$(mainApp.mainView.el).hide();
-				$(mainApp.imagesListView.el).show();
+				$(mainApp.mainView.el).parent().hide();
+				$(mainApp.imagesListView.el).parent().show();
 				// mainApp.getRegion('aRegion').show(imagesView);
 			}, 2000);
 			setTimeout(function() {
@@ -61,7 +64,18 @@ define(['kitchen', 'choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbon
 			mainApp.mainView.model.set({
 				poster: image
 			});
-		});	
+			$(mainApp.imagesListView.el).parent().hide();
+			$(mainApp.mainView.el).parent().show();
+		});
+
+		mainApp.vent.on("close_images_list", function(someData){
+			$(mainApp.imagesListView.el).parent().hide();
+			$(mainApp.mainView.el).parent().show();
+		});
+		mainApp.vent.on("open_images_list", function(){
+			$(mainApp.imagesListView.el).parent().show();
+			$(mainApp.mainView.el).parent().hide();
+		});
 
 		deferred.resolve('true'); // asynchronous "Hello, world!"
 	}();	

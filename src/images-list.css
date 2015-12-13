@@ -40,9 +40,15 @@
     border: none; 
 }
 
+.tab-content{
+	height: 616px;	
+    overflow: auto;
+}
 /*accord*/
 .accord_container{
-	padding: 0; 
+	padding: 0;
+	height: 616px;
+    overflow: auto;
 }
 .accord_btn{
 	width: 100%;
