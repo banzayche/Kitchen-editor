@@ -42,21 +42,21 @@ define(['kitchen', 'choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbon
 			$(mainApp.imagesListView.el).parent().hide();			
 		});
 
-		function hide_show(){
-			$(mainApp.imagesListView.el).hide();
-			setTimeout(function() {
-				console.log(mainApp.mainView.el);
-				$(mainApp.mainView.el).parent().hide();
-				$(mainApp.imagesListView.el).parent().show();
-				// mainApp.getRegion('aRegion').show(imagesView);
-			}, 2000);
-			setTimeout(function() {
-				console.log(mainApp.mainView.el);
-				$(mainApp.imagesListView.el).hide();
-				$(mainApp.mainView.el).show();
-				// mainApp.getRegion('aRegion').show(layoutView);
-			}, 3000);
-		}
+		// function hide_show(){
+		// 	$(mainApp.imagesListView.el).hide();
+		// 	setTimeout(function() {
+		// 		console.log(mainApp.mainView.el);
+		// 		$(mainApp.mainView.el).parent().hide();
+		// 		$(mainApp.imagesListView.el).parent().show();
+		// 		// mainApp.getRegion('aRegion').show(imagesView);
+		// 	}, 2000);
+		// 	setTimeout(function() {
+		// 		console.log(mainApp.mainView.el);
+		// 		$(mainApp.imagesListView.el).hide();
+		// 		$(mainApp.mainView.el).show();
+		// 		// mainApp.getRegion('aRegion').show(layoutView);
+		// 	}, 2000);
+		// }
 
 
 		mainApp.vent.on("change_image", function(someData){
@@ -64,17 +64,17 @@ define(['kitchen', 'choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbon
 			mainApp.mainView.model.set({
 				poster: image
 			});
-			$(mainApp.imagesListView.el).parent().hide();
-			$(mainApp.mainView.el).parent().show();
+			$(mainApp.imagesListView.el).parent().hide(200);
+			$(mainApp.mainView.el).parent().show(200);
 		});
 
 		mainApp.vent.on("close_images_list", function(someData){
-			$(mainApp.imagesListView.el).parent().hide();
-			$(mainApp.mainView.el).parent().show();
+			$(mainApp.imagesListView.el).parent().hide(200);
+			$(mainApp.mainView.el).parent().show(200);
 		});
 		mainApp.vent.on("open_images_list", function(){
-			$(mainApp.imagesListView.el).parent().show();
-			$(mainApp.mainView.el).parent().hide();
+			$(mainApp.imagesListView.el).parent().show(200);
+			$(mainApp.mainView.el).parent().hide(200);
 		});
 
 		deferred.resolve('true'); // asynchronous "Hello, world!"
