@@ -12,6 +12,9 @@
     font-weight: 300;
     text-transform: uppercase;
 }
+#images_list button{
+    outline: none;
+}
 #images_list a{
 	color: black;
 }
@@ -74,6 +77,10 @@
     line-height: 2.5;
     cursor: pointer;
     z-index: 19;
+/*    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;*/
 }
 .cover-all:hover+.absolute-img-name{
 	width: 100%;

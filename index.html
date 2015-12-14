@@ -10,8 +10,11 @@
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript">
 		require(['bootstrap','jquery-ui']);
-		require(['app'], function(data){
-			console.log('start');
+		require(['app'], function(App){
+			App.then(function(App){
+				App.mainView.model.default_poster = './src/images/posters/puuviljad-murul1.jpg';
+				App.start();
+			});
 		});
 	</script>
 	<link rel="stylesheet" type="text/css" href="src/styles.css">
