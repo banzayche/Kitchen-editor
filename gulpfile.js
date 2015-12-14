@@ -6,14 +6,16 @@ gulp.task('scripts', function () {
 	return gulp.src('./src/js/app.js')
 		.pipe(requirejsOptimize({
 			exclude: [
-				'jquery',
-				'underscore',
-				'backbone',
-				'backbonemarionette',
-				'backbonebabysitter',
-				'backbonewreqr',
-				'text',
-				'bootstrap'
+				// 'jquery',
+				// 'underscore',
+				// 'backbone',
+				// 'backbonemarionette',
+				// 'backbonebabysitter',
+				// 'backbonewreqr',
+				// 'text',
+				// 'bootstrap',
+				// 'jquery-ui',
+				'img_collection'
 			],
 			baseUrl: './src',
 			mainConfigFile: './main.js',

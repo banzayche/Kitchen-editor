@@ -2,14 +2,57 @@
 <html>
 <head>
 	<title>Demo</title>
+	<!-- styles -->
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300&subset=latin,cyrillic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="./src/preloader.css">
+
+    <link rel="stylesheet" type="text/css" href="src/styles.css">
+	<link rel="stylesheet" type="text/css" href="src/images-list.css">
+    <!-- / styles -->
 	<script src="./bower_components/requirejs/require.js"></script>
-	<script type="text/javascript" src="main.js"></script>
+	<!-- <script type="text/javascript" src="main.js"></script> -->
 	<script type="text/javascript">
-		require(['bootstrap','jquery-ui']);
+		requirejs.config({
+		    //By default load any module IDs from js/lib
+		    baseUrl: './src',
+		    paths: {
+		        // 'jquery': '../bower_components/jquery/dist/jquery.min',
+		        // 'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
+		        // 'backbone': '../bower_components/backbone/backbone-min',
+		        // 'backbonebabysitter': '../bower_components/backbone.babysitter/lib/backbone.babysitter.min',
+		        // 'backbonemarionette': '../bower_components/backbone.marionette/lib/backbone.marionette.min',
+		        // 'backbonewreqr': '../bower_components/backbone.wreqr/lib/backbone.wreqr.min',        
+		        // 'underscore': '../bower_components/underscore/underscore-min',
+		        // 'text': '../bower_components/text/text',
+		        // 'jquery-ui': '../bower_components/jquery-ui/jquery-ui.min',
+		        // 'kitchen': './js/views/kitchen',
+		        // 'choose_image': './js/views/choose-image',
+		        'img_collection': './js/collections/img_collection',
+		        'app': '../dist/app'
+		        // 'app': '../dist/app'
+		    },
+		    // shim: {
+		    //     'jquery-ui': {
+		    //         deps: ['jquery']
+		    //     },
+		    //     'backbone': {
+		    //         //These script dependencies should be loaded before loading
+		    //         //backbone.js
+		    //         deps: ['underscore', 'jquery'],
+		    //         //Once loaded, use the global 'Backbone' as the
+		    //         //module value.
+		    //         exports: 'Backbone'
+		    //     },
+		    //     'bootstrap': {
+		    //         deps: ['jquery']
+		    //     },
+		    //     'app': {
+		    //         deps: ['backbone']
+		    //     }
+		    // }
+		});
+
 		require(['app'], function(App){
 			App.then(function(App){
 				App.mainView.model.default_poster = './src/images/posters/puuviljad-murul1.jpg';
@@ -17,8 +60,7 @@
 			});
 		});
 	</script>
-	<link rel="stylesheet" type="text/css" href="src/styles.css">
-	<link rel="stylesheet" type="text/css" href="src/images-list.css">
+	
 </head>
 <body>
 	<div id='area-kitchen'>

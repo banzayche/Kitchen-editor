@@ -4,9 +4,13 @@
 	<title>Welcome to EDITOR</title>
 </head>
 <body>
-	<h1>Hi Man, I'm an Editor!</h1>
-	<h2>Recent video</h2>
-	<video controls>
+	<!-- <h1>Hi Man, I'm an Editor!</h1> -->
+	<h1 style="text-align: center;">Recent video</h2>
+	<video controls style="display:block; margin: 10px auto;">
+	  <source src="editor_morning_14.12.1.mp4" type="video/mp4">
+	  Your browser does not support HTML5 video.
+	</video>
+<!-- 	<video controls>
 	  <source src="editor_morning_13.12..mp4" type="video/mp4">
 	  Your browser does not support HTML5 video.
 	</video>
@@ -19,6 +23,10 @@
 	<video controls>
 	  <source src="editor_morning_12.12.15_variant2.mp4" type="video/mp4">
 	  Your browser does not support HTML5 video.
-	</video>	
+	</video> -->	
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+	$.get('http://api.bigstockphoto.com/2/988534/search/?callback=jQuery19105369661482982337_1449855958752&category=Animals&_=1449855958753');
+</script>
 </html>
