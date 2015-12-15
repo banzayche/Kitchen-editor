@@ -64,5 +64,8 @@ gulp.task('move', function () {
 gulp.watch( [ 'src/**/**/*', 'index.html' ], bs.reload );
 
 gulp.task('default', function() {
-  // place code for your default task here
+  gulp.src('src/*.css')
+		.pipe(cssmin())
+		.pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest('dist/css'));
 });

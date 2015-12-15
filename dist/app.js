@@ -939,17 +939,17 @@ define('app',['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'ba
 			mainApp.mainView.model.set({
 				poster: image
 			});
-			$(mainApp.imagesListView.el).parent().hide(200);
-			$(mainApp.mainView.el).parent().show(200);
+			$(mainApp.imagesListView.el).parent().hide(400);
+			$(mainApp.mainView.el).parent().show(400);
 		});
 
 		mainApp.vent.on("close_images_list", function(someData){
-			$(mainApp.imagesListView.el).parent().hide(200);
-			$(mainApp.mainView.el).parent().show(200);
+			$(mainApp.imagesListView.el).parent().hide(400);
+			$(mainApp.mainView.el).parent().show(400);
 		});
 		mainApp.vent.on("open_images_list", function(){
-			$(mainApp.imagesListView.el).parent().show(200);
-			$(mainApp.mainView.el).parent().hide(200);
+			$(mainApp.imagesListView.el).parent().show(400);
+			$(mainApp.mainView.el).parent().hide(400);
 		});
 
 		// resolve(mainApp); // asynchronous "Hello, world!"

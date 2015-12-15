@@ -25,6 +25,12 @@
 	text-transform: uppercase;
 	border-radius: 0px;
 }
+#images_list .nav.nav-justified li>a{
+	background: rgba(4,4,4,.2);
+}
+#images_list .nav.nav-justified li.active>a{
+	background: white;
+}
 #images_list .nav.nav-justified a{
 	border-radius: 0px;
 	line-height: 2.8;
@@ -81,17 +87,61 @@
     line-height: 2.5;
     cursor: pointer;
     z-index: 19;
-/*    transition: all 0.1s;
-    -webkit-transition: all 0.1s;
-    -moz-transition: all 0.1s;
-    -ms-transition: all 0.1s;*/
 }
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    from {
+    	opacity: 0;
+	}
+    to {
+    	top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		opacity: 1;
+	}
+}
+@-ms-keyframes example {
+    from {
+    	opacity: 0;
+	}
+    to {
+    	top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		opacity: 1;
+	}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {
+    	opacity: 0;
+	}
+    to {
+    	top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		opacity: 1;
+	}
+}
+
 .cover-all:hover+.absolute-img-name{
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;	
+    	width: 100%;
+		height: 100%;
 	z-index: 19;
+	animation-name: example;
+    animation-duration: .7s;
 }
 .cover-all:hover+.absolute-img-name>span{
 	display: block;
