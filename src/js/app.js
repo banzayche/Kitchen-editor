@@ -37,20 +37,20 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 			// search('animals', 'image');
 			// $ curl "https://${client_id}:${client_secret}@api.shutterstock.com/v2/images/search?query=donkey&page=2&per_page=1"
 			// var test = "https://${3352aeffbd24d33f8859}:${097f832242ad371d9f012770cabdb1e6cebc433a}@api.shutterstock.com/v2/images/search?query=cat&page=2&per_page=1"
-			var jqxhr = $.ajax({
-		        url: 'https://api.shutterstock.com/v2' + '/' + 'image' + 's/search',
-		        data: "query=cats&safe=true&image_type=photo&orientation=horizontal&page=1&per_page=30",
-		        headers: {
-		            Authorization: 'Basic ' + window.btoa('3352aeffbd24d33f8859' + ':' + '097f832242ad371d9f012770cabdb1e6cebc433a')
-		        }
-		    })
-		    .done(function (data) {
-		    	console.log(data)
-		    	data.data.forEach(function(data){
-		    		console.log(data.assets.preview.url);
-		    		$('body').append('<img src="'+data.assets.preview.url+'">')
-		    	});
-		    });
+			// var jqxhr = $.ajax({
+		 //        url: 'https://api.shutterstock.com/v2' + '/' + 'image' + 's/search',
+		 //        data: "query=cats&safe=true&image_type=photo&orientation=horizontal&page=1&per_page=30",
+		 //        headers: {
+		 //            Authorization: 'Basic ' + window.btoa('3352aeffbd24d33f8859' + ':' + '097f832242ad371d9f012770cabdb1e6cebc433a')
+		 //        }
+		 //    })
+		 //    .done(function (data) {
+		 //    	console.log(data)
+		 //    	data.data.forEach(function(data){
+		 //    		console.log(data.assets.preview.url);
+		 //    		$('body').append('<img src="'+data.assets.preview.url+'">')
+		 //    	});
+		 //    });
 
 	return new Promise(function(resolve, reject) {
 			var default_paths_images = {
