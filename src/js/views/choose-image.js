@@ -4,12 +4,25 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		template: _.template(choose_image_template),
 		ui: {
 			close_list: '#close-list-img',
-			category_button: '#accord_container button'
+			category_button: '#accord_container button',
+			// tabs
+			tab1: '#img_tab1',
+			tab2: '#img_tab2'
 		},
 		events: {
 			'click @ui.close_list': '_closeListImg',
-			'click @ui.category_button': '_getCategory'
+			'click @ui.category_button': '_getCategory',
+			'click @ui.tab1': '_clickTab1',
+			'click @ui.tab2': '_clickTab2',
 		},
+		_clickTab1: function(){
+			this._show_hide_menu('main');
+		},
+		_clickTab2: function(){
+			this._show_hide_menu('shutterstock');
+		},
+
+
 		_getCategory: function(e){
 			var state = $(e.target).parent().attr('data-parent');
 			if( state === 'shutterstock'){
@@ -33,7 +46,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		},
 		currentTheme: 0,
 		_shutterstock_category: 'animals',
-		_current_tab: 'main',
 		onRender: function(){
 			this._showView()
 			// this.list_area.show(new Marionette.CollectionView({
@@ -102,19 +114,34 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		    });	
 		},
 		_showView: function(){
-			if(self._current_tab === 'main'){
+			// if(self._current_tab === 'main'){
 
-			} else{
+			// } else{
 
-			}
+			// }
 			this._main_images_view();
 			this._sutterstock_images_view();
+
+			
 			// var template;
 			// if(data === 'main'){
 			// 	template = _.template(img_el_template);
 			// } else{
 			// 	template = _.template(shutterstock_template_img);
 			// }		    
+		},
+		onShow: function(){
+			this._show_hide_menu('main');
+		},
+		_show_hide_menu: function(data){
+			console.log('===================',data);
+			if(data === 'main'){
+				$('#accord_container #shutterstock_menu').hide();
+				$('#accord_container #accordion').show();
+			} else{
+				$('#accord_container #accordion').hide();
+				$('#accord_container #shutterstock_menu').show();
+			}
 		}
 	});
 
