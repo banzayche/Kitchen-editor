@@ -78,6 +78,7 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 			}));
 		},
 		_sutterstock_images_view: function(){
+			$('#shutterhost_img').html('<h4 style="text-align:center;">Download...</h4>')
 			var self = this;
 			var view_2 = Marionette.ItemView.extend({
 				mainApp: self.mainApp,
