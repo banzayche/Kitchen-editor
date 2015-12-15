@@ -52,7 +52,7 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 		 //    	});
 		 //    });
 
-	return new Promise(function(resolve, reject) {
+	// return new Promise(function(resolve, reject) {
 			var default_paths_images = {
 			k1: './src/images/kitchen/k1-beige.png',
 			k2: './src/images/kitchen/k2-beige.png',
@@ -105,6 +105,7 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 			$(mainApp.mainView.el).parent().hide(200);
 		});
 
-		resolve(mainApp); // asynchronous "Hello, world!"
-	});	
+		// resolve(mainApp); // asynchronous "Hello, world!"
+		return mainApp;
+	// });	
 });
