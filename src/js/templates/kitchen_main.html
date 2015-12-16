@@ -9,7 +9,7 @@
 	<div class="kitchen-panel" style="background: url(<%=kitcehn_bg%>);"></div>
 
 	<div id="parent-draggable">
-		<div id="draggable" class=""></div>
+		<div id="draggable" class="movement" style="top:-43px; left:-89px;"></div>
 	</div>
 	<div class="k_wall">
 		<div id="crop-area">
@@ -18,13 +18,15 @@
 					transform: scale(<%= scale %>) !important;
 					-webkit-transform: scale(<%= scale %>) !important;
 					-moz-transform: scale(<%= scale %>) !important;
-					-ms-transform: scale(<%= scale %>) !important;										
-					top: <%= top_place %>px !important;
+					-ms-transform: scale(<%= scale %>) !important;
+					display:block;
+					position: absolute;						
+		/*			top: <%= top_place %>px !important;
 					left: <%= left_place %>px !important;
 					<%if(top_place === 0){%>
 					top: -2px !important;
 					left: -2px !important;
-					<%}%>
+					<%}%>*/
 				}
 				<%if(scale_mirrow === true){%>
 					#crop-area{
@@ -35,7 +37,7 @@
 					}					
 				<%}%>
 			</style>
-			<img id="main-poster" style="display:block;" src="<%=poster%>">		
+			<img id="main-poster" class="movement" style="top:-10px; left:-10px;" src="<%=poster%>">		
 		</div>		
 	</div>
 </div>

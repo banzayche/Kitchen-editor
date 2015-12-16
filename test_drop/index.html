@@ -6,52 +6,69 @@
         div.dragElement {font-size: large; border: thin solid black; padding:16px;
             width: 8em; text-align: center; background-color: lightgray; margin: 4px }
         #container { border: medium double black; width: 700px; height: 450px}
+        #ball{
+                cursor: pointer;
+    position: absolute;
+    left: 56px;
+    top: 92px;
+    z-index: 1000;
+        }
     </style>
     <script type="text/javascript">
 $(function() {
-    
-    $('#test').draggable({
-        // containment: "parent",
-        // helper:'#dragH'
-        refreshPositions:false,
-        start: function(event, ui) {
-            console.log('start',ui);
-        },
-        drag: function(event, ui) {
-            console.log('drag',ui);            
-        },
-        stop: function(event, ui) {
-            console.log('stop',ui);            
-        }
-    })
+    function getCoords(elem) { // кроме IE8-
+      var box = elem.getBoundingClientRect();
 
-    // ------- Работа со свойством addClasses ---------
-    // в момент установки draggable на элемент
-    // $("#test").draggable({ addClasses: false });
-     
-    //получение значения addClasses
-    // var addClasses = $("#test").draggable( "option", "addClasses" );
-    //изменение значения addClasses
-    // $("#test").draggable( "option", "addClasses", true );
-    // $('#dragH').draggable("option", "axis", "x");
-    // $('.dragElement').click(function(){
-    //     $('.dragElement').click();
-    // });
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      };
 
+    }
+    var ball = document.getElementById('ball');
+
+    ball.onmousedown = function(e) {
+
+      var coords = getCoords(ball);
+      var shiftX = e.pageX - coords.left;
+      var shiftY = e.pageY - coords.top;
+
+      ball.style.position = 'absolute';
+      document.body.appendChild(ball);
+      moveAt(e);
+
+      ball.style.zIndex = 1000; // над другими элементами
+
+      function moveAt(e) {
+        ball.style.left = e.pageX - shiftX + 'px';
+        ball.style.top = e.pageY - shiftY + 'px';
+      }
+
+      document.onmousemove = function(e) {
+        moveAt(e);
+      };
+
+      ball.onmouseup = function() {
+        document.onmousemove = null;
+        ball.onmouseup = null;
+      };
+
+    }
+
+    ball.ondragstart = function() {
+        return false;
+    };
 });
     </script> 
 </head>
 <body>    
     <div id="container">
         
-        <div id="test" class="dragElement ui-widget ui-corner-all ui-state-error">
+        <div id="ball" class="dragElement ui-widget ui-corner-all ui-state-error">
             Перетащить внутри родителя
             
         </div>
-        <div id="dragH" class="dragElement ui-widget ui-corner-all ui-state-error">
-            Перетащить по горизонтали
-        </div> 
+
     </div>  
-    <div id="torba" style="width:600px; height:600px;border:1px solid red;"></div>
 </body>
 </html>

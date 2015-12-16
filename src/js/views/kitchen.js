@@ -210,54 +210,165 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 		onRender: function() {
 			var self = this;
 			setTimeout(function() {
-				$('#draggable').draggable({
-					drag: function(event, ui) {						
-					    // ui.position.left = 0;
-					    // ceep position for image
-					    var image = $('#main-poster');
-					    ui.ceep = {};
-					    ui.ceep.top = ui.position.top;
-					    ui.ceep.left = ui.position.left;
+				// $('#draggable').draggable({
+				// 	drag: function(event, ui) {						
+				// 	    // ui.position.left = 0;
+				// 	    // ceep position for image
+				// 	    var image = $('#main-poster');
+				// 	    ui.ceep = {};
+				// 	    ui.ceep.top = ui.position.top;
+				// 	    ui.ceep.left = ui.position.left;
 					    
-					    self.model.set({
-					    	top_place: ui.ceep.top,
-					    	left_place: ui.ceep.left
-					    });
+				// 	    self.model.set({
+				// 	    	top_place: ui.ceep.top,
+				// 	    	left_place: ui.ceep.left
+				// 	    });
 
-					    // image.css('top', ui.ceep.top);
-					    // image.css('left', ui.ceep.left);
-					    // none draggable cube
-					    ui.position.left = ui.originalPosition.left;
-					    ui.position.top = ui.originalPosition.top;
-				   }
-				});
+				// 	    // image.css('top', ui.ceep.top);
+				// 	    // image.css('left', ui.ceep.left);
+				// 	    // none draggable cube
+				// 	    ui.position.left = ui.originalPosition.left;
+				// 	    ui.position.top = ui.originalPosition.top;
+				//    }
+				// });
 
 			// $('#draggable').click(function(e) {
 			// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
 			// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
 			// 	console.log(x +'x'+ y);
+			// });				
+			},10);
+		},
+		onShow: function() {
+			// var ball = $('#draggable');
+			var y_start;
+			var x_start;
+
+			// инфа про картинку
+			var rect_img;
+			// инфа про один обьект
+			var rect_crop;
+
+			// ball.mousedown(function(e) {
+			// 	x_start = e.offsetX==undefined?e.layerX:e.offsetX;
+			// 	y_start = e.offsetY==undefined?e.layerY:e.offsetY;
+			// 	console.log(x_start +'x'+ y_start);
+			// 	ball.css('z-index', '999999999999999999999999999999')
+			// 	function moveAt(e) {
+			// 	    ball.css('left', e.offsetX==undefined?e.layerX:e.offsetX);
+			// 	    ball.css('top', e.offsetY==undefined?e.layerY:e.offsetY);
+
+			// 	    // $('#main-poster').css('left', e.offsetX==undefined?e.layerX:e.offsetX);
+			// 	    // $('#main-poster').css('top', e.offsetY==undefined?e.layerY:e.offsetY);
+			// 	}
+
+			// 	document.onmousemove = function(e) {
+			// 		moveAt(e);
+			// 	}
+
+			// 	ball.mouseup(function() {
+			// 		console.log('test up')
+			// 	    document.onmousemove = null;
+			// 	    document.getElementsByClassName("movement")[0].onmouseup = null;
+			// 	    document.getElementsByClassName("movement")[1].onmouseup = null;
+			// 	});
 			// });
+			// ball.ondragstart = function() {
+			//   return false;
+			// };
 
-				// инфа про картинку
-				var rect_img = document.getElementById("main-poster").getBoundingClientRect();
-				console.log('rect_img',rect_img);
-				// инфа про один обьект
-				var rect_crop = document.getElementById("crop-area").getBoundingClientRect();
-				console.log('rect_crop',rect_crop);
+			$(function() {
+    function getCoords(elem) { // кроме IE8-
+      var box = elem.getBoundingClientRect();
 
-				if(rect_img.left > rect_crop.left){
-					alert('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
-				}
-				if(rect_img.top > rect_crop.top){
-					alert('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
-				}
-				if(rect_img.right < rect_crop.right){
-					alert('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
-				}
-				if(rect_img.bottom < rect_crop.bottom){
-					alert('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
-				}
-			},1000);
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      };
+
+    }
+    var ball = document.getElementById('draggable');
+    var poster = document.getElementById('main-poster');
+
+    ball.onmousedown = function(e) {
+
+      var coords = getCoords(ball);
+      var shiftX = e.pageX;
+      var shiftY = e.pageY;
+
+      ball.style.position = 'absolute';
+      // document.body.appendChild(ball);
+      // document.body.appendChild(poster);
+      moveAt(e, true);
+
+      ball.style.zIndex = 1000; // над другими элементами
+
+      function moveAt(e, data) {
+      	if(data === true){
+      		console.log('===========first')
+      		 ball.style.left = e.pageX - shiftX -10 + 'px';
+	        ball.style.top = e.pageY - shiftY -10 + 'px';
+	        // ball.style.background = 'red';
+
+	        poster.style.left = e.pageX - shiftX -10 + 'px';
+	        poster.style.top = e.pageY - shiftY -10 + 'px';
+      	}
+      	// инфа про картинку
+		rect_img = document.getElementById("main-poster").getBoundingClientRect();
+		// console.log('rect_img',rect_img);
+		// инфа про один обьект
+		rect_crop = document.getElementById("crop-area").getBoundingClientRect();
+		// console.log('rect_crop',rect_crop);
+      	
+      	if(rect_img.left > rect_crop.left){
+      		done();
+			console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+		}
+		if(rect_img.top > rect_crop.top){
+			done();
+			console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
+		}
+		if(rect_img.right < rect_crop.right){
+			done();
+			console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+		}
+		if(rect_img.bottom < rect_crop.bottom){
+			done();
+			console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+		}
+
+        ball.style.left = e.pageX - shiftX -10 + 'px';
+        ball.style.top = e.pageY - shiftY -10 + 'px';
+        // ball.style.background = 'red';
+
+        poster.style.left = e.pageX - shiftX -10 + 'px';
+        poster.style.top = e.pageY - shiftY -10 + 'px';
+      }
+
+      document.onmousemove = function(e) {
+        moveAt(e);
+      };
+
+      ball.onmouseup = function() {
+        document.onmousemove = null;
+        ball.onmouseup = null;
+      };
+      function done(){
+      	document.onmousemove = null;
+        ball.onmouseup = null;
+      }
+    }
+
+    ball.ondragstart = function() {
+        return false;
+    };
+});
+
+
+
+			
+
+			
 		}
 	});
 

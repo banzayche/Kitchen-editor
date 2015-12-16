@@ -40,18 +40,18 @@ body{
 #crop-area{
 	position: absolute;
     overflow: hidden;
-    width: 890px;
+    width: 684px;
     height: 165px;
     border: 1px dotted rgb(153, 153, 153);
-    left: 0px;
+    left: -79px !important;
     top: 0px;
 }
 #crop-area>img{
 	display: inherit;
     position: absolute;
-    width: 890px;
-    height: 270px;
-    left: 0px;
+/*    width: 890px;
+    height: 270px;*/
+/*    left: 0px;*/
     /*top: -100.115px;*/
 }
 .rotate_bg{
@@ -423,3 +423,23 @@ body{
 
 
 
+#crop-area{
+    z-index: 2000;
+    border: 1px solid red;
+}
+#crop-area, .k_wall {
+    overflow: visible ;
+}
+#parent-draggable>#draggable.movement, .movement{
+    width: 900px;
+    height: 270px;
+  /*  left: -5px;
+    top: -5px;*/
+}
+#parent-draggable>#draggable.movement{
+        /*background: rebeccapurple;*/
+    /*top: -29px;*/
+    position: absolute;
+    /*background-color: red;*/
+    /*left: -81px;*/
+}
