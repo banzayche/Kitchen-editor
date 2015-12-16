@@ -210,28 +210,48 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 		onRender: function() {
 			var self = this;
 			setTimeout(function() {
-				$('#draggable').draggable({
-					drag: function(event, ui) {						
-					    // ui.position.left = 0;
-					    // ceep position for image
-					    var image = $('#main-poster');
-					    ui.ceep = {};
-					    ui.ceep.top = ui.position.top;
-					    ui.ceep.left = ui.position.left;
+			// 	$('#draggable').draggable({
+			// 		drag: function(event, ui) {						
+			// 		    // ui.position.left = 0;
+			// 		    // ceep position for image
+			// 		    var image = $('#main-poster');
+			// 		    ui.ceep = {};
+			// 		    ui.ceep.top = ui.position.top;
+			// 		    ui.ceep.left = ui.position.left;
 					    
-					    self.model.set({
-					    	top_place: ui.ceep.top,
-					    	left_place: ui.ceep.left
-					    });
+			// 		    self.model.set({
+			// 		    	top_place: ui.ceep.top,
+			// 		    	left_place: ui.ceep.left
+			// 		    });
 
-					    // image.css('top', ui.ceep.top);
-					    // image.css('left', ui.ceep.left);
-					    // none draggable cube
-					    ui.position.left = ui.originalPosition.left;
-					    ui.position.top = ui.originalPosition.top;
-				   }
-				});
-			},10);
+			// 		    // image.css('top', ui.ceep.top);
+			// 		    // image.css('left', ui.ceep.left);
+			// 		    // none draggable cube
+			// 		    ui.position.left = ui.originalPosition.left;
+			// 		    ui.position.top = ui.originalPosition.top;
+			// 	   }
+			// 	});
+
+			// $('#draggable').click(function(e) {
+			// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
+			// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
+			// 	console.log(x +'x'+ y);
+			// });
+
+				// инфа про один обьект
+				var rect = document.getElementById("draggable").getBoundingClientRect();
+				console.log(rect);
+
+				window.addEventListener('click', function(e) {
+					if(e.pageX > rect.left){
+						console.log('danger left')
+					} 
+					if(e.pageY > rect.top){
+						console.log('danger top')
+					}
+				  console.log('screen: ' + e.screenX + 'x' + e.screenY + '\npage: ' + e.pageX + 'x' + e.pageY + '\nclient: ' + e.clientX + 'x' + e.clientY);
+				}, false);
+			},1000);
 		}
 	});
 

@@ -4,53 +4,18 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 
 
 
-			// var API_URL = 'https://api.shutterstock.com/v2';
-			// function encodeAuthorization() {
-			//     var clientId = '3352aeffbd24d33f8859';
-			//     var clientSecret = '097f832242ad371d9f012770cabdb1e6cebc433a';
+	
+	// window.addEventListener('click', function(e) {
+	//   console.log('screen: ' + e.screenX + 'x' + e.screenY + '\npage: ' + e.pageX + 'x' + e.pageY + '\nclient: ' + e.clientX + 'x' + e.clientY);
+	// }, false);
 
-			//     return 'Basic ' + window.btoa(clientId + ':' + clientSecret);
-			// }
-			// // Search media by type
-			// function search(opts, mediaType) {
-			//     var createComponentFunc = mediaType === 'image';
+	// $('#draggable').click(function(e) {
+	// 	console.log('test');
+	// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
+	// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
+	// 	console.log(x +'x'+ y);
+	// });
 
-			//     authorization = encodeAuthorization();
-			//     if (!authorization) return;
-
-			//     var jqxhr = $.ajax({
-			//         url: API_URL + '/' + mediaType + 's/search',
-			//         data: opts,
-			//         headers: {
-			//             Authorization: authorization
-			//         }
-			//     }).done(function (data) {
-		 //        	if (data.total_count === 0) {
-		 //            	return;
-		 //        	}
-		 //        	console.log(data.data);
-		 //    	});
-
-			//     return jqxhr;
-			// }
-
-			// search('animals', 'image');
-			// $ curl "https://${client_id}:${client_secret}@api.shutterstock.com/v2/images/search?query=donkey&page=2&per_page=1"
-			// var test = "https://${3352aeffbd24d33f8859}:${097f832242ad371d9f012770cabdb1e6cebc433a}@api.shutterstock.com/v2/images/search?query=cat&page=2&per_page=1"
-			// var jqxhr = $.ajax({
-		 //        url: 'https://api.shutterstock.com/v2' + '/' + 'image' + 's/search',
-		 //        data: "query=cats&safe=true&image_type=photo&orientation=horizontal&page=1&per_page=30",
-		 //        headers: {
-		 //            Authorization: 'Basic ' + window.btoa('3352aeffbd24d33f8859' + ':' + '097f832242ad371d9f012770cabdb1e6cebc433a')
-		 //        }
-		 //    })
-		 //    .done(function (data) {
-		 //    	console.log(data)
-		 //    	data.data.forEach(function(data){
-		 //    		console.log(data.assets.preview.url);
-		 //    		$('body').append('<img src="'+data.assets.preview.url+'">')
-		 //    	});
-		 //    });
 
 	// return new Promise(function(resolve, reject) {
 			var default_paths_images = {

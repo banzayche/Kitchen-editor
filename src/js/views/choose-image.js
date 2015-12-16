@@ -107,7 +107,7 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		        }
 		    })
 		    .done(function (data) {
-		    	console.log(data.data)
+		    	// console.log(data.data)
 		    	self.list_area.show(new Marionette.CollectionView({
 					childView: view_2,
 					collection: new Backbone.Collection(data.data)
