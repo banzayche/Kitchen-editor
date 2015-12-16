@@ -237,7 +237,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
 			// 	console.log(x +'x'+ y);
 			// });				
-			},2000);
+			},1000);
 		},
 		_test: function() {
 			// var ball = $('#draggable');
@@ -289,7 +289,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
     }
     var ball = document.getElementById('draggable');
     var poster = document.getElementById('main-poster');
-
+    var after_up = {top:0, left:0};
     ball.onmousedown = function(e) {
 
       var coords = getCoords(ball);
@@ -306,40 +306,41 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
       function moveAt(e, data) {
       	if(data === true){
       		console.log('===========first')
-      		 ball.style.left = e.pageX - shiftX -10 + 'px';
+      		ball.style.left = after_up.left + 'px';
+	        ball.style.top = after_up.top + 'px';
+	        // ball.style.background = 'red';
+
+	        poster.style.left = after_up.left + 'px';
+	        poster.style.top = after_up.top + 'px';
+      	} else{
+      		// инфа про картинку
+			rect_img = document.getElementById("main-poster").getBoundingClientRect();
+			// console.log('rect_img',rect_img);
+			// инфа про один обьект
+			rect_crop = document.getElementById("crop-area").getBoundingClientRect();
+			// console.log('rect_crop',rect_crop);
+	      	
+	      	if(rect_img.left > rect_crop.left){
+	      		done();
+				console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+			} else if(rect_img.top > rect_crop.top){
+				done();
+				console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
+			} else if(rect_img.right < rect_crop.right){
+				done();
+				console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+			} else if(rect_img.bottom < rect_crop.bottom){
+				done();
+				console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+			}
+
+	        ball.style.left = e.pageX - shiftX -10 + 'px';
 	        ball.style.top = e.pageY - shiftY -10 + 'px';
 	        // ball.style.background = 'red';
 
-	        poster.style.left = e.pageX - shiftX -10 + 'px';
-	        poster.style.top = e.pageY - shiftY -10 + 'px';
-      	}
-      	// инфа про картинку
-		rect_img = document.getElementById("main-poster").getBoundingClientRect();
-		// console.log('rect_img',rect_img);
-		// инфа про один обьект
-		rect_crop = document.getElementById("crop-area").getBoundingClientRect();
-		// console.log('rect_crop',rect_crop);
-      	
-      	if(rect_img.left > rect_crop.left){
-      		done();
-			console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
-		} else if(rect_img.top > rect_crop.top){
-			done();
-			console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
-		} else if(rect_img.right < rect_crop.right){
-			done();
-			console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
-		} else if(rect_img.bottom < rect_crop.bottom){
-			done();
-			console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
-		}
-
-        ball.style.left = e.pageX - shiftX -10 + 'px';
-        ball.style.top = e.pageY - shiftY -10 + 'px';
-        // ball.style.background = 'red';
-
-        poster.style.left = e.pageX - shiftX -10 + 'px';
-        poster.style.top = e.pageY - shiftY -10 + 'px';
+	        after_up.left = poster.style.left = e.pageX - shiftX -10 + 'px';
+	        after_up.top = poster.style.top = e.pageY - shiftY -10 + 'px';
+      	}   	
 
 
       }
@@ -349,10 +350,11 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
       };
 
       ball.onmouseup = function() {
+      	console.log(after_up.top ,'x',after_up.left)
         document.onmousemove = null;
         ball.onmouseup = null;
       };
-      function done(){
+      function done(){      	
       	document.onmousemove = null;
         ball.onmouseup = null;
       }
