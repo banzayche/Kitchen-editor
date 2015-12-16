@@ -43,7 +43,7 @@ body{
     width: 684px;
     height: 165px;
     border: 1px dotted rgb(153, 153, 153);
-    left: -79px !important;
+    left: 0px !important;
     top: 0px;
 }
 #crop-area>img{
@@ -73,11 +73,12 @@ body{
     position: absolute;
     top: 298px;
     left: 50px;
-    z-index: 11;
+    /*z-index: 11;*/
     padding: 0 10px;
     padding-top: 38px;
     font-size: 20px;
     cursor: pointer;
+    z-index: 99999999999999999999999999999999999999 !important;
 }
 #draggable{
 	cursor: move;

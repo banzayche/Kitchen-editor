@@ -26,7 +26,7 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 			position: 'c_position',
 			can_rotate: false,
 			mainPath: './src/images/kitchen/',
-			default_poster: './src/images/posters/number1/oliivid-oksdega1.jpg',
+			default_poster: './src/images/posters/number1/laimid_sidrun_munt_mustal_taustal1.jpg',
 			scale: 1,
 			top_place: 0,
 			left_place: 0,

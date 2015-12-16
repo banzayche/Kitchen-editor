@@ -399,7 +399,7 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!js/templates/kitchen_main.html',[],function () { return '<h2 class="text-center">ВЫБОР КАРТИНКИ И КАЛЬКУЛЯЦИЯ ФАРТУКА</h2>\r\n<div id=\'canvas-kitchen\' class="<%=position%> <%=rotate%>">\r\n\t<!-- if it\'s lateral panel - it cans rotate -->\r\n\t<%if(can_rotate === true){%>\r\n\t\t<div class="rotate_bg"></div>\r\n\t\t<div class="rotate text-center"><i></i><br><span class="text-on-button">Посмотреть эту сторону</span></div>\r\n\t<%}%>\r\n\t<!-- /end -->\r\n\t<div class="kitchen-panel" style="background: url(<%=kitcehn_bg%>);"></div>\r\n\r\n\t<div id="parent-draggable">\r\n\t\t<div id="draggable" class=""></div>\r\n\t</div>\r\n\t<div class="k_wall">\r\n\t\t<div id="crop-area">\r\n\t\t\t<style>\r\n\t\t\t\t#main-poster{\r\n\t\t\t\t\ttransform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-webkit-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-moz-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-ms-transform: scale(<%= scale %>) !important;\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\ttop: <%= top_place %>px !important;\r\n\t\t\t\t\tleft: <%= left_place %>px !important;\r\n\t\t\t\t}\r\n\t\t\t\t<%if(scale_mirrow === true){%>\r\n\t\t\t\t\t#crop-area{\r\n\t\t\t\t\t\ttransform: scale(-1, 1);\r\n\t\t\t\t\t\t-webkit-transform: scale(-1, 1);\r\n\t\t\t\t\t\t-moz-transform: scale(-1, 1);\r\n\t\t\t\t\t\t-ms-transform: scale(-1, 1);\r\n\t\t\t\t\t}\t\t\t\t\t\r\n\t\t\t\t<%}%>\r\n\t\t\t</style>\r\n\t\t\t<img id="main-poster" style="display:block;" src="<%=poster%>">\t\t\r\n\t\t</div>\t\t\r\n\t</div>\r\n</div>\r\n<div id=\'control-panel\' class="pull-right col-sm-3 col-md-3 col-xs-3">\r\n\t<div class="position-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<h4 class="text-center">Тип кухни</h4>\r\n\t\t<div class="without-style">\r\n\t\t\t<button class="position-button <%if(position === \'l_position\'){%>active<%}%>" id="position-left"></button>\r\n\t\t\t<button class="position-button <%if(position === \'c_position\'){%>active<%}%>" id="position-center"></button>\r\n\t\t\t<button class="position-button <%if(position === \'r_position\'){%>active<%}%>" id="position-right"></button>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class="color-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<h4 class="text-center">Цвет кухни</h4>\r\n\t\t<div class="into-style">\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color1\'){%>active<%}%>" id="color1"></div>\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color2\'){%>active<%}%>" id="color2"></div>\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color3\'){%>active<%}%>" id="color3"></div>\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color4\'){%>active<%}%>" id="color4"></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class="getimg-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<button class="spec-button text-on-button" id="choose_img_button"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;&nbsp;Выбери фото</button>\r\n\t</div>\r\n\t<div class="scale-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<button class="scale-button spec-button" id="minus">-</button>\r\n\t\t<button class="scale-button spec-button" id="plus">+</button>\r\n\t</div>\r\n\t<div class="mirrow-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<button class="mirrow-button spec-button text-on-button"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;&nbsp;Повернуть фото</button>\r\n\t</div>\r\n</div>';});
+define('text!js/templates/kitchen_main.html',[],function () { return '<h2 class="text-center">ВЫБОР КАРТИНКИ И КАЛЬКУЛЯЦИЯ ФАРТУКА</h2>\r\n<div id=\'canvas-kitchen\' class="<%=position%> <%=rotate%>">\r\n\t<!-- if it\'s lateral panel - it cans rotate -->\r\n\t<%if(can_rotate === true){%>\r\n\t\t<div class="rotate_bg"></div>\r\n\t\t<div class="rotate text-center"><i></i><br><span class="text-on-button">Посмотреть эту сторону</span></div>\r\n\t<%}%>\r\n\t<!-- /end -->\r\n\t<div class="kitchen-panel" style="background: url(<%=kitcehn_bg%>);"></div>\r\n\r\n\t<div id="parent-draggable">\r\n\t\t<div id="draggable" class="movement" style="top:-43px; left:-89px;"></div>\r\n\t</div>\r\n\t<div class="k_wall">\r\n\t\t<div id="crop-area">\r\n\t\t\t<style>\r\n\t\t\t\t#parent-draggable>#draggable.movement{\r\n\t\t\t\t\ttransform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-webkit-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-moz-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-ms-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\tdisplay:block;\r\n\t\t\t\t\tposition: absolute;\r\n\t\t\t\t}\r\n\t\t\t\t#main-poster{\r\n\t\t\t\t\ttransform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-webkit-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-moz-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\t-ms-transform: scale(<%= scale %>) !important;\r\n\t\t\t\t\tdisplay:block;\r\n\t\t\t\t\tposition: absolute;\t\t\t\t\t\t\r\n\t\t/*\t\t\ttop: <%= top_place %>px !important;\r\n\t\t\t\t\tleft: <%= left_place %>px !important;\r\n\t\t\t\t\t<%if(top_place === 0){%>\r\n\t\t\t\t\ttop: -2px !important;\r\n\t\t\t\t\tleft: -2px !important;\r\n\t\t\t\t\t<%}%>*/\r\n\t\t\t\t}\r\n\t\t\t\t<%if(scale_mirrow === true){%>\r\n\t\t\t\t\t#crop-area>#main-poster{\r\n\t\t\t\t\t\ttransform: scale(-1, 1)!important;\r\n\t\t\t\t\t\t-webkit-transform: scale(-1, 1)!important;\r\n\t\t\t\t\t\t-moz-transform: scale(-1, 1)!important;\r\n\t\t\t\t\t\t-ms-transform: scale(-1, 1)!important;\r\n\t\t\t\t\t}\t\t\t\t\t\r\n\t\t\t\t<%}%>\r\n\t\t\t</style>\r\n\t\t\t<img id="main-poster" class="movement" style="top:-10px; left:-10px;" src="<%=poster%>">\t\t\r\n\t\t</div>\t\t\r\n\t</div>\r\n</div>\r\n<div id=\'control-panel\' class="pull-right col-sm-3 col-md-3 col-xs-3">\r\n\t<div class="position-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<h4 class="text-center">Тип кухни</h4>\r\n\t\t<div class="without-style">\r\n\t\t\t<button class="position-button <%if(position === \'l_position\'){%>active<%}%>" id="position-left"></button>\r\n\t\t\t<button class="position-button <%if(position === \'c_position\'){%>active<%}%>" id="position-center"></button>\r\n\t\t\t<button class="position-button <%if(position === \'r_position\'){%>active<%}%>" id="position-right"></button>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class="color-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<h4 class="text-center">Цвет кухни</h4>\r\n\t\t<div class="into-style">\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color1\'){%>active<%}%>" id="color1"></div>\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color2\'){%>active<%}%>" id="color2"></div>\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color3\'){%>active<%}%>" id="color3"></div>\r\n\t\t\t<div class="color-button <%if(current_color_of_panel === \'color4\'){%>active<%}%>" id="color4"></div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class="getimg-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<button class="spec-button text-on-button" id="choose_img_button"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;&nbsp;Выбери фото</button>\r\n\t</div>\r\n\t<div class="scale-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<button class="scale-button spec-button" id="minus">-</button>\r\n\t\t<button class="scale-button spec-button" id="plus">+</button>\r\n\t</div>\r\n\t<div class="mirrow-panel col-sm-12 col-md-12 col-xs-12">\r\n\t\t<button class="mirrow-button spec-button text-on-button"><span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;&nbsp;Повернуть фото</button>\r\n\t</div>\r\n</div>';});
 
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
@@ -635,28 +635,166 @@ define('kitchen',['text!js/templates/kitchen_main.html', 'backbone', 'backbonema
 		onRender: function() {
 			var self = this;
 			setTimeout(function() {
-				$('#draggable').draggable({
-					drag: function(event, ui) {						
-					    // ui.position.left = 0;
-					    // ceep position for image
-					    var image = $('#main-poster');
-					    ui.ceep = {};
-					    ui.ceep.top = ui.position.top;
-					    ui.ceep.left = ui.position.left;
-					    
-					    self.model.set({
-					    	top_place: ui.ceep.top,
-					    	left_place: ui.ceep.left
-					    });
+				// $('#draggable').draggable({
+				// 	drag: function(event, ui) {						
+				// 	    // ui.position.left = 0;
+				// 	    // ceep position for image
+				// 	    var image = $('#main-poster');
+				// 	    ui.ceep = {};
+				// 	    ui.ceep.top = ui.position.top;
+				// 	    ui.ceep.left = ui.position.left;
+					    self._test();
+				// 	    self.model.set({
+				// 	    	top_place: ui.ceep.top,
+				// 	    	left_place: ui.ceep.left
+				// 	    });
 
-					    // image.css('top', ui.ceep.top);
-					    // image.css('left', ui.ceep.left);
-					    // none draggable cube
-					    ui.position.left = ui.originalPosition.left;
-					    ui.position.top = ui.originalPosition.top;
-				   }
-				});
-			},10);
+				// 	    // image.css('top', ui.ceep.top);
+				// 	    // image.css('left', ui.ceep.left);
+				// 	    // none draggable cube
+				// 	    ui.position.left = ui.originalPosition.left;
+				// 	    ui.position.top = ui.originalPosition.top;
+				//    }
+				// });
+
+			// $('#draggable').click(function(e) {
+			// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
+			// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
+			// 	console.log(x +'x'+ y);
+			// });				
+			},1000);
+		},
+		_test: function() {
+			// var ball = $('#draggable');
+			var y_start;
+			var x_start;
+
+			// инфа про картинку
+			var rect_img;
+			// инфа про один обьект
+			var rect_crop;
+
+			// ball.mousedown(function(e) {
+			// 	x_start = e.offsetX==undefined?e.layerX:e.offsetX;
+			// 	y_start = e.offsetY==undefined?e.layerY:e.offsetY;
+			// 	console.log(x_start +'x'+ y_start);
+			// 	ball.css('z-index', '999999999999999999999999999999')
+			// 	function moveAt(e) {
+			// 	    ball.css('left', e.offsetX==undefined?e.layerX:e.offsetX);
+			// 	    ball.css('top', e.offsetY==undefined?e.layerY:e.offsetY);
+
+			// 	    // $('#main-poster').css('left', e.offsetX==undefined?e.layerX:e.offsetX);
+			// 	    // $('#main-poster').css('top', e.offsetY==undefined?e.layerY:e.offsetY);
+			// 	}
+
+			// 	document.onmousemove = function(e) {
+			// 		moveAt(e);
+			// 	}
+
+			// 	ball.mouseup(function() {
+			// 		console.log('test up')
+			// 	    document.onmousemove = null;
+			// 	    document.getElementsByClassName("movement")[0].onmouseup = null;
+			// 	    document.getElementsByClassName("movement")[1].onmouseup = null;
+			// 	});
+			// });
+			// ball.ondragstart = function() {
+			//   return false;
+			// };
+
+			$(function() {
+    function getCoords(elem) { // кроме IE8-
+      var box = elem.getBoundingClientRect();
+
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      };
+
+    }
+    var ball = document.getElementById('draggable');
+    var poster = document.getElementById('main-poster');
+    var after_up = {top:0, left:0};
+    ball.onmousedown = function(e) {
+
+      var coords = getCoords(ball);
+      var shiftX = e.pageX;
+      var shiftY = e.pageY;
+
+      ball.style.position = 'absolute';
+      // document.body.appendChild(ball);
+      // document.body.appendChild(poster);
+      moveAt(e, true);
+
+      ball.style.zIndex = 1000; // над другими элементами
+
+      function moveAt(e, data) {
+      	if(data === true){
+      		console.log('===========first')
+      		ball.style.left = after_up.left + 'px';
+	        ball.style.top = after_up.top + 'px';
+	        // ball.style.background = 'red';
+
+	        poster.style.left = after_up.left + 'px';
+	        poster.style.top = after_up.top + 'px';
+      	} else{
+      		// инфа про картинку
+			rect_img = document.getElementById("main-poster").getBoundingClientRect();
+			// console.log('rect_img',rect_img);
+			// инфа про один обьект
+			rect_crop = document.getElementById("crop-area").getBoundingClientRect();
+			// console.log('rect_crop',rect_crop);
+	      	
+	      	if(rect_img.left > rect_crop.left){
+	      		done();
+				console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+			} else if(rect_img.top > rect_crop.top){
+				done();
+				console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
+			} else if(rect_img.right < rect_crop.right){
+				done();
+				console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+			} else if(rect_img.bottom < rect_crop.bottom){
+				done();
+				console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+			}
+
+	        ball.style.left = e.pageX - shiftX -10 + 'px';
+	        ball.style.top = e.pageY - shiftY -10 + 'px';
+	        // ball.style.background = 'red';
+
+	        after_up.left = poster.style.left = e.pageX - shiftX -10 + 'px';
+	        after_up.top = poster.style.top = e.pageY - shiftY -10 + 'px';
+      	}   	
+
+
+      }
+
+      document.onmousemove = function(e) {
+        moveAt(e);
+      };
+
+      ball.onmouseup = function() {
+      	console.log(after_up.top ,'x',after_up.left)
+        document.onmousemove = null;
+        ball.onmouseup = null;
+      };
+      function done(){      	
+      	document.onmousemove = null;
+        ball.onmouseup = null;
+      }
+    }
+
+    ball.ondragstart = function() {
+        return false;
+    };
+});
+
+
+
+			
+
+			
 		}
 	});
 
@@ -780,7 +918,7 @@ define('choose_image',['text!js/templates/choose_image.html', 'backbone', 'backb
 		        }
 		    })
 		    .done(function (data) {
-		    	console.log(data.data)
+		    	// console.log(data.data)
 		    	self.list_area.show(new Marionette.CollectionView({
 					childView: view_2,
 					collection: new Backbone.Collection(data.data)
@@ -851,53 +989,18 @@ define('app',['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'ba
 
 
 
-			// var API_URL = 'https://api.shutterstock.com/v2';
-			// function encodeAuthorization() {
-			//     var clientId = '3352aeffbd24d33f8859';
-			//     var clientSecret = '097f832242ad371d9f012770cabdb1e6cebc433a';
+	
+	// window.addEventListener('click', function(e) {
+	//   console.log('screen: ' + e.screenX + 'x' + e.screenY + '\npage: ' + e.pageX + 'x' + e.pageY + '\nclient: ' + e.clientX + 'x' + e.clientY);
+	// }, false);
 
-			//     return 'Basic ' + window.btoa(clientId + ':' + clientSecret);
-			// }
-			// // Search media by type
-			// function search(opts, mediaType) {
-			//     var createComponentFunc = mediaType === 'image';
+	// $('#draggable').click(function(e) {
+	// 	console.log('test');
+	// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
+	// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
+	// 	console.log(x +'x'+ y);
+	// });
 
-			//     authorization = encodeAuthorization();
-			//     if (!authorization) return;
-
-			//     var jqxhr = $.ajax({
-			//         url: API_URL + '/' + mediaType + 's/search',
-			//         data: opts,
-			//         headers: {
-			//             Authorization: authorization
-			//         }
-			//     }).done(function (data) {
-		 //        	if (data.total_count === 0) {
-		 //            	return;
-		 //        	}
-		 //        	console.log(data.data);
-		 //    	});
-
-			//     return jqxhr;
-			// }
-
-			// search('animals', 'image');
-			// $ curl "https://${client_id}:${client_secret}@api.shutterstock.com/v2/images/search?query=donkey&page=2&per_page=1"
-			// var test = "https://${3352aeffbd24d33f8859}:${097f832242ad371d9f012770cabdb1e6cebc433a}@api.shutterstock.com/v2/images/search?query=cat&page=2&per_page=1"
-			// var jqxhr = $.ajax({
-		 //        url: 'https://api.shutterstock.com/v2' + '/' + 'image' + 's/search',
-		 //        data: "query=cats&safe=true&image_type=photo&orientation=horizontal&page=1&per_page=30",
-		 //        headers: {
-		 //            Authorization: 'Basic ' + window.btoa('3352aeffbd24d33f8859' + ':' + '097f832242ad371d9f012770cabdb1e6cebc433a')
-		 //        }
-		 //    })
-		 //    .done(function (data) {
-		 //    	console.log(data)
-		 //    	data.data.forEach(function(data){
-		 //    		console.log(data.assets.preview.url);
-		 //    		$('body').append('<img src="'+data.assets.preview.url+'">')
-		 //    	});
-		 //    });
 
 	// return new Promise(function(resolve, reject) {
 			var default_paths_images = {
@@ -908,7 +1011,7 @@ define('app',['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'ba
 			position: 'c_position',
 			can_rotate: false,
 			mainPath: './src/images/kitchen/',
-			default_poster: './src/images/posters/number1/oliivid-oksdega1.jpg',
+			default_poster: './src/images/posters/number1/laimid_sidrun_munt_mustal_taustal1.jpg',
 			scale: 1,
 			top_place: 0,
 			left_place: 0,
