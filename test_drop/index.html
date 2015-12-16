@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <style type="text/css">
+        div.dragElement {font-size: large; border: thin solid black; padding:16px;
+            width: 8em; text-align: center; background-color: lightgray; margin: 4px }
+        #container { border: medium double black; width: 700px; height: 450px}
+    </style>
+    <script type="text/javascript">
+$(function() {
+    
+    $('#test').draggable({
+        // containment: "parent",
+        // helper:'#dragH'
+        refreshPositions:false,
+        start: function(event, ui) {
+            console.log('start',ui);
+        },
+        drag: function(event, ui) {
+            console.log('drag',ui);            
+        },
+        stop: function(event, ui) {
+            console.log('stop',ui);            
+        }
+    })
+
+    // ------- Работа со свойством addClasses ---------
+    // в момент установки draggable на элемент
+    // $("#test").draggable({ addClasses: false });
+     
+    //получение значения addClasses
+    // var addClasses = $("#test").draggable( "option", "addClasses" );
+    //изменение значения addClasses
+    // $("#test").draggable( "option", "addClasses", true );
+    // $('#dragH').draggable("option", "axis", "x");
+    // $('.dragElement').click(function(){
+    //     $('.dragElement').click();
+    // });
+
+});
+    </script> 
+</head>
+<body>    
+    <div id="container">
+        
+        <div id="test" class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить внутри родителя
+            
+        </div>
+        <div id="dragH" class="dragElement ui-widget ui-corner-all ui-state-error">
+            Перетащить по горизонтали
+        </div> 
+    </div>  
+    <div id="torba" style="width:600px; height:600px;border:1px solid red;"></div>
+</body>
+</html>

@@ -774,7 +774,7 @@ define('choose_image',['text!js/templates/choose_image.html', 'backbone', 'backb
 			
 			var jqxhr = $.ajax({
 		        url: 'https://api.shutterstock.com/v2' + '/' + 'image' + 's/search',
-		        data: "query="+self._shutterstock_category+"&safe=true&image_type=photo&orientation=horizontal&page=1&per_page=20",
+		        data: "query="+self._shutterstock_category+"&safe=true&image_type=photo&orientation=horizontal&page=1&per_page=300",
 		        headers: {
 		            Authorization: 'Basic ' + window.btoa('3352aeffbd24d33f8859' + ':' + '097f832242ad371d9f012770cabdb1e6cebc433a')
 		        }
