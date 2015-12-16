@@ -21,6 +21,10 @@
 					-ms-transform: scale(<%= scale %>) !important;										
 					top: <%= top_place %>px !important;
 					left: <%= left_place %>px !important;
+					<%if(top_place === 0){%>
+					top: -2px !important;
+					left: -2px !important;
+					<%}%>
 				}
 				<%if(scale_mirrow === true){%>
 					#crop-area{
