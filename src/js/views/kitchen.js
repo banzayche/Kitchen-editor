@@ -218,7 +218,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 				// 	    ui.ceep = {};
 				// 	    ui.ceep.top = ui.position.top;
 				// 	    ui.ceep.left = ui.position.left;
-					    
+					    self._test();
 				// 	    self.model.set({
 				// 	    	top_place: ui.ceep.top,
 				// 	    	left_place: ui.ceep.left
@@ -237,9 +237,9 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
 			// 	console.log(x +'x'+ y);
 			// });				
-			},10);
+			},2000);
 		},
-		onShow: function() {
+		_test: function() {
 			// var ball = $('#draggable');
 			var y_start;
 			var x_start;
@@ -323,16 +323,13 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
       	if(rect_img.left > rect_crop.left){
       		done();
 			console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
-		}
-		if(rect_img.top > rect_crop.top){
+		} else if(rect_img.top > rect_crop.top){
 			done();
 			console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
-		}
-		if(rect_img.right < rect_crop.right){
+		} else if(rect_img.right < rect_crop.right){
 			done();
 			console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
-		}
-		if(rect_img.bottom < rect_crop.bottom){
+		} else if(rect_img.bottom < rect_crop.bottom){
 			done();
 			console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
 		}
@@ -343,6 +340,8 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 
         poster.style.left = e.pageX - shiftX -10 + 'px';
         poster.style.top = e.pageY - shiftY -10 + 'px';
+
+
       }
 
       document.onmousemove = function(e) {

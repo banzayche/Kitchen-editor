@@ -424,11 +424,11 @@ body{
 
 
 #crop-area{
-    z-index: 2000;
-    border: 1px solid red;
+/*    z-index: 2000;
+    border: 1px solid red;*/
 }
 #crop-area, .k_wall {
-    overflow: visible ;
+    overflow: hidden ;
 }
 #parent-draggable>#draggable.movement, .movement{
     width: 900px;
@@ -436,10 +436,16 @@ body{
   /*  left: -5px;
     top: -5px;*/
 }
+#control-panel{
+    z-index: 99999999999999999999999999;
+}
 #parent-draggable>#draggable.movement{
         /*background: rebeccapurple;*/
     /*top: -29px;*/
     position: absolute;
     /*background-color: red;*/
     /*left: -81px;*/
+}
+#area-kitchen{
+    overflow: hidden;
 }
