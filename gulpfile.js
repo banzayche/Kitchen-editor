@@ -22,7 +22,7 @@ gulp.task('scripts', function () {
 			baseUrl: './src',
 			mainConfigFile: './main.js',
 			name: 'app',
-			optimize: 'none',
+			optimize: 'uglify2',
 			insertRequire: ['app'],
 		}))
 		.pipe(gulp.dest('dist'));

@@ -450,3 +450,19 @@ body{
 #area-kitchen{
     overflow: hidden;
 }
+.c_position #crop-area {
+    width: 598px !important;
+    top: 31px !important;
+    height: 129px !important;
+}
+.c_position #main-poster{
+    width: 603px !important;
+    height: 192px !important;
+}
+.l_position #main-poster, .r_position #main-poster{
+    width: 652px !important;
+    height: 200px !important;
+}
+.l_position #crop-area, .r_position #crop-area{
+    width: 647px !important;
+}
