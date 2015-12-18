@@ -208,136 +208,15 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			this.model._changeMirrow();
 		},
 		onRender: function() {
+			var self = this;
+			setTimeout(function(){
+				self._try_two();
+			}, 1000);
 		},
 		onShow: function(){
-			this._try_two();
+			// this._try_two();
 		},
-		_test: function() {
-			// var ball = $('#draggable');
-			var y_start;
-			var x_start;
-
-			// инфа про картинку
-			var rect_img;
-			// инфа про один обьект
-			var rect_crop;
-
-			// ball.mousedown(function(e) {
-			// 	x_start = e.offsetX==undefined?e.layerX:e.offsetX;
-			// 	y_start = e.offsetY==undefined?e.layerY:e.offsetY;
-			// 	console.log(x_start +'x'+ y_start);
-			// 	ball.css('z-index', '999999999999999999999999999999')
-			// 	function moveAt(e) {
-			// 	    ball.css('left', e.offsetX==undefined?e.layerX:e.offsetX);
-			// 	    ball.css('top', e.offsetY==undefined?e.layerY:e.offsetY);
-
-			// 	    // $('#main-poster').css('left', e.offsetX==undefined?e.layerX:e.offsetX);
-			// 	    // $('#main-poster').css('top', e.offsetY==undefined?e.layerY:e.offsetY);
-			// 	}
-
-			// 	document.onmousemove = function(e) {
-			// 		moveAt(e);
-			// 	}
-
-			// 	ball.mouseup(function() {
-			// 		console.log('test up')
-			// 	    document.onmousemove = null;
-			// 	    document.getElementsByClassName("movement")[0].onmouseup = null;
-			// 	    document.getElementsByClassName("movement")[1].onmouseup = null;
-			// 	});
-			// });
-			// ball.ondragstart = function() {
-			//   return false;
-			// };
-
-			$(function() {
-    function getCoords(elem) { // кроме IE8-
-      var box = elem.getBoundingClientRect();
-
-      return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
-      };
-
-    }
-    var ball = document.getElementById('draggable');
-    var poster = document.getElementById('main-poster');
-    var after_up = {top:0, left:0};
-    ball.onmousedown = function(e) {
-
-      var coords = getCoords(ball);
-      var shiftX = e.pageX;
-      var shiftY = e.pageY;
-
-      ball.style.position = 'absolute';
-      // document.body.appendChild(ball);
-      // document.body.appendChild(poster);
-      moveAt(e, true);
-
-      ball.style.zIndex = 1000; // над другими элементами
-
-      function moveAt(e, data) {
-      	if(data === true){
-      		console.log('===========first')
-      		ball.style.left = after_up.left + 'px';
-	        ball.style.top = after_up.top + 'px';
-	        // ball.style.background = 'red';
-
-	        poster.style.left = after_up.left + 'px';
-	        poster.style.top = after_up.top + 'px';
-      	} else{
-      		// инфа про картинку
-			rect_img = document.getElementById("main-poster").getBoundingClientRect();
-			// console.log('rect_img',rect_img);
-			// инфа про один обьект
-			rect_crop = document.getElementById("crop-area").getBoundingClientRect();
-			// console.log('rect_crop',rect_crop);
-	      	
-	      	if(rect_img.left > rect_crop.left){
-	      		done();
-				console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
-			} else if(rect_img.top > rect_crop.top){
-				done();
-				console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
-			} else if(rect_img.right < rect_crop.right){
-				done();
-				console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
-			} else if(rect_img.bottom < rect_crop.bottom){
-				done();
-				console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
-			}
-
-	        ball.style.left = e.pageX - shiftX -10 + 'px';
-	        ball.style.top = e.pageY - shiftY -10 + 'px';
-	        // ball.style.background = 'red';
-
-	        after_up.left = poster.style.left = e.pageX - shiftX -10 + 'px';
-	        after_up.top = poster.style.top = e.pageY - shiftY -10 + 'px';
-      	}   	
-
-
-      }
-
-      document.onmousemove = function(e) {
-        moveAt(e);
-      };
-
-      ball.onmouseup = function() {
-      	console.log(after_up.top ,'x',after_up.left)
-        document.onmousemove = null;
-        ball.onmouseup = null;
-      };
-      function done(){      	
-      	document.onmousemove = null;
-        ball.onmouseup = null;
-      }
-    }
-
-    ball.ondragstart = function() {
-        return false;
-    };
-});			
-		},
+		
 		// ====================================================
 		_try_two: function(){
 			var y_start;
@@ -371,39 +250,39 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 
     				// =====check what is happened
     				if(e.pageX>x_y_save.x){    					
-    					console.log("x - UP");
+    					// console.log("x - UP");
     					x_y_save.x = e.pageX;
     					plusing_elemts.x = 2;
     				};
     				if(e.pageY>x_y_save.y){
-    					console.log("y - UP");
+    					// console.log("y - UP");
     					x_y_save.y = e.pageY;
     					plusing_elemts.y = 2;
     				};
     				if(e.pageX<x_y_save.x){
-    					console.log("x - DOWN");
+    					// console.log("x - DOWN");
     					x_y_save.x = e.pageX;
     					plusing_elemts.x = -2;
     				};
     				if(e.pageY<x_y_save.y){
-    					console.log("y - DOWN");
+    					// console.log("y - DOWN");
     					x_y_save.y = e.pageY;
     					plusing_elemts.y = -2;    					
     				};
 
 					// =====when do not need any events
 					if(rect_img.left >= rect_crop.left){												
-						console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+						// console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
 						plusing_elemts.x = -2;
 					} else if(rect_img.top >= rect_crop.top){
-						console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);
+						// console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);
 						plusing_elemts.y = -2;			
 					} else if(rect_img.right <= rect_crop.right){
 						plusing_elemts.x = 2;
-						console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+						// console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
 					} else if(rect_img.bottom <= rect_crop.bottom){
 						plusing_elemts.y = 2;
-						console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+						// console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
 					}
 
 					
@@ -412,8 +291,8 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
     				// changing Top: and Left:
     				poster.css('top', top_img+plusing_elemts.y);
     				poster.css('left', left_img+plusing_elemts.x);
-    				console.log('poster left: ', poster.css('left'));
-    				console.log('poster top: ', poster.css('top'));
+    				// console.log('poster left: ', poster.css('left'));
+    				// console.log('poster top: ', poster.css('top'));
 
 
     				// console.log('====')    				
@@ -422,7 +301,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			    	// console.log('x: ',e.pageX,' y: ',e.pageY);
     				// console.log('====')			    	
 			    };
-		    	ball.onmouseup = function(e) {  		
+		    	document.onmouseup = function(e) {  		
 			        document.onmousemove = null;
 			        ball.onmouseup = null;
 			    };
