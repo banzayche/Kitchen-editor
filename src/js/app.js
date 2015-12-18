@@ -4,8 +4,10 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 	// return new Promise(function(resolve, reject) {
 	_.result(deferred, 'promise').then(function (target) {
 	    console.log("The App is compiled successfully!");
-	    $('.cssload-container').hide();
-	    mainApp.start();
+	    setTimeout(function(){
+	    	$('.cssload-container').hide();
+	    	mainApp.start();
+	    }, 1000);
 	});
 	var getReady = function(){
 			var default_paths_images = {

@@ -207,7 +207,11 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 				var el2 = document.getElementById('draggable');
 				setTimeout(function(){	
 					if(el1 !== null && el2 !== null){
-						self._try_two();
+						if(self.scale_mirrow === true){
+							self._try_two_mirrow();							
+						}else{
+							self._try_two();
+						}						
 					} else{						
 						get_move();				
 					}
@@ -284,6 +288,91 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 						plusing_elemts.y = -2;			
 					} else if(rect_img.right <= rect_crop.right){
 						plusing_elemts.x = 2;
+						// console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+					} else if(rect_img.bottom <= rect_crop.bottom){
+						plusing_elemts.y = 2;
+						// console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+					}
+
+					// changing Top: and Left:
+    				poster.css('top', top_img+plusing_elemts.y);
+    				poster.css('left', left_img+plusing_elemts.x);		    	
+			    };
+		    	document.onmouseup = function(e) {  		
+			        document.onmousemove = null;
+			        ball.onmouseup = null;
+			    };
+			    function done(){      	
+			      	document.onmousemove = null;
+			        ball.onmouseup = null;
+			    };    			
+    		};
+    		// prevent default event of browser
+    		ball.ondragstart = function() {
+			    return false;
+			};
+		},
+		_try_two_mirrow: function(){
+			var y_start;
+			var x_start;
+			// инфа про картинку
+			var rect_img;
+			// инфа про один обьект
+			var rect_crop;
+			var ball = document.getElementById('draggable');
+    		var poster = $('#main-poster');
+    		var x_y_save = {y:0, x:0};
+    		ball.onmousedown = function(e) {			    
+			    x_y_save.y = e.pageY;
+			    x_y_save.x = e.pageX;
+			    // console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
+
+    			document.onmousemove = function(e) {
+    				// инфа про картинку
+					rect_img = document.getElementById("main-poster").getBoundingClientRect();
+					// console.log('rect_img',rect_img);
+					// инфа про один обьект
+					rect_crop = document.getElementById("crop-area").getBoundingClientRect();
+					// console.log('rect_crop',rect_crop);
+					// -----------------------------------
+					var plusing_elemts={x:0,y:0};
+					// -----------------------------------
+					var top_img = poster.css('top');
+    				var left_img = poster.css('left');
+    				top_img = parseInt(top_img, 10);
+    				left_img = parseInt(left_img, 10);
+
+    				// =====check what is happened
+    				if(e.pageX>x_y_save.x){    					
+    					// console.log("x - UP");
+    					x_y_save.x = e.pageX;
+    					plusing_elemts.x = -2;
+    				};
+    				if(e.pageY>x_y_save.y){
+    					// console.log("y - UP");
+    					x_y_save.y = e.pageY;
+    					plusing_elemts.y = 2;
+    				};
+    				if(e.pageX<x_y_save.x){
+    					// console.log("x - DOWN");
+    					x_y_save.x = e.pageX;
+    					plusing_elemts.x = 2;
+    				};
+    				if(e.pageY<x_y_save.y){
+    					// console.log("y - DOWN");
+    					x_y_save.y = e.pageY;
+    					plusing_elemts.y = -2;    					
+    				};
+
+					// =====when do not need any events
+					if(rect_img.left >= rect_crop.left){												
+						// console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+						plusing_elemts.x = 2;
+					} else if(rect_img.top >= rect_crop.top){
+						// console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);
+						plusing_elemts.y = -2;			
+					} else if(rect_img.right <= rect_crop.right){
+						plusing_elemts.x = -2;
 						// console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
 					} else if(rect_img.bottom <= rect_crop.bottom){
 						plusing_elemts.y = 2;

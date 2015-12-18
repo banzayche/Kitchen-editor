@@ -1,74 +1,40 @@
 <!DOCTYPE html>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
-    <style type="text/css">
-        div.dragElement {font-size: large; border: thin solid black; padding:16px;
-            width: 8em; text-align: center; background-color: lightgray; margin: 4px }
-        #container { border: medium double black; width: 700px; height: 450px}
-        #ball{
-                cursor: pointer;
-    position: absolute;
-    left: 56px;
-    top: 92px;
-    z-index: 1000;
-        }
-    </style>
-    <script type="text/javascript">
-$(function() {
-    function getCoords(elem) { // кроме IE8-
-      var box = elem.getBoundingClientRect();
+<html>
+<head>
+	<title>Testing VS</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-      return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
-      };
-
-    }
-    var ball = document.getElementById('ball');
-
-    ball.onmousedown = function(e) {
-
-      var coords = getCoords(ball);
-      var shiftX = e.pageX - coords.left;
-      var shiftY = e.pageY - coords.top;
-
-      ball.style.position = 'absolute';
-      document.body.appendChild(ball);
-      moveAt(e);
-
-      ball.style.zIndex = 1000; // над другими элементами
-
-      function moveAt(e) {
-        ball.style.left = e.pageX - shiftX + 'px';
-        ball.style.top = e.pageY - shiftY + 'px';
-      }
-
-      document.onmousemove = function(e) {
-        moveAt(e);
-      };
-
-      ball.onmouseup = function() {
-        document.onmousemove = null;
-        ball.onmouseup = null;
-      };
-
-    }
-
-    ball.ondragstart = function() {
-        return false;
-    };
-});
-    </script> 
+	<style type="text/css">
+		body{
+			background: rgba(4,4,4,.4);
+		}
+	</style>
 </head>
-<body>    
-    <div id="container">
-        
-        <div id="ball" class="dragElement ui-widget ui-corner-all ui-state-error">
-            Перетащить внутри родителя
-            
-        </div>
-
-    </div>  
+<body>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="col-sm-4 col-md-4 col-xs-12">
+			<h1 style="text-align: center;">Testing vs Chrome</h2>
+			<video controls style="display:block; width:100%; margin: 10px auto;">
+			  <source src="chrome_end.mp4" type="video/mp4">
+			  Your browser does not support HTML5 video.
+			</video>
+		</div>
+		<div class="col-sm-4 col-md-4 col-xs-12">
+			<h1 style="text-align: center;">Testing vs FireFox</h2>
+			<video controls style="display:block; width:100%; margin: 10px auto;">
+			  <source src="firefox_end.mp4" type="video/mp4">
+			  Your browser does not support HTML5 video.
+			</video>
+		</div>
+		<div class="col-sm-4 col-md-4 col-xs-12">
+			<h1 style="text-align: center;">Testing vs IE</h2>
+			<video controls style="display:block; width:100%; margin: 10px auto;">
+			  <source src="IE_end.mp4" type="video/mp4">
+			  Your browser does not support HTML5 video.
+			</video>
+		</div>
+	</div>	
 </body>
 </html>
