@@ -352,7 +352,7 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
     		ball.onmousedown = function(e) {			    
 			    x_y_save.y = e.pageY;
 			    x_y_save.x = e.pageX;
-			    console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
+			    // console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
 
     			document.onmousemove = function(e) {
     				// инфа про картинку
@@ -373,49 +373,54 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
     				if(e.pageX>x_y_save.x){    					
     					console.log("x - UP");
     					x_y_save.x = e.pageX;
-    					plusing_elemts.x = 1;
+    					plusing_elemts.x = 2;
     				};
     				if(e.pageY>x_y_save.y){
     					console.log("y - UP");
     					x_y_save.y = e.pageY;
-    					plusing_elemts.y = 1;
+    					plusing_elemts.y = 2;
     				};
     				if(e.pageX<x_y_save.x){
     					console.log("x - DOWN");
     					x_y_save.x = e.pageX;
-    					plusing_elemts.x = -1;
+    					plusing_elemts.x = -2;
     				};
     				if(e.pageY<x_y_save.y){
     					console.log("y - DOWN");
     					x_y_save.y = e.pageY;
-    					plusing_elemts.y = -1;    					
+    					plusing_elemts.y = -2;    					
     				};
 
 					// =====when do not need any events
-					if(rect_img.left > rect_crop.left){						
-			      		alert('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
-					} else if(rect_img.top > rect_crop.top){
-						alert('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
-					} else if(rect_img.right < rect_crop.right){
-						alert('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
-					} else if(rect_img.bottom < rect_crop.bottom){
-						alert('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+					if(rect_img.left >= rect_crop.left){												
+						console.log('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+						plusing_elemts.x = -2;
+					} else if(rect_img.top >= rect_crop.top){
+						console.log('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);
+						plusing_elemts.y = -2;			
+					} else if(rect_img.right <= rect_crop.right){
+						plusing_elemts.x = 2;
+						console.log('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+					} else if(rect_img.bottom <= rect_crop.bottom){
+						plusing_elemts.y = 2;
+						console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
 					}
 
 					
-    				
+    				// console.log('x: ',left_img);
+    				// console.log('y: ',top_img);
     				// changing Top: and Left:
-    				poster.css('top', top_img+1);
-    				poster.css('left', top_img+1);
+    				poster.css('top', top_img+plusing_elemts.y);
+    				poster.css('left', left_img+plusing_elemts.x);
     				console.log('poster left: ', poster.css('left'));
     				console.log('poster top: ', poster.css('top'));
 
 
-    				console.log('====')    				
-    				console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
-    				console.log('------------------------------------')
-			    	console.log('x: ',e.pageX,' y: ',e.pageY);
-    				console.log('====')			    	
+    				// console.log('====')    				
+    				// console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
+    				// console.log('------------------------------------')
+			    	// console.log('x: ',e.pageX,' y: ',e.pageY);
+    				// console.log('====')			    	
 			    };
 		    	ball.onmouseup = function(e) {  		
 			        document.onmousemove = null;
