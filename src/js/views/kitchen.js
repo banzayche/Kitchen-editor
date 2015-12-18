@@ -15,12 +15,10 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			var scale = this.get('scale');
 			if(data === 'plus') {
 				if(scale<2){
-					console.log(scale);
 					this.set({scale: +scale+.1});
 				}
 			} else {
 				if(scale>1){
-					console.log(scale);
 					this.set({scale: +scale-.1});
 				}
 			}
@@ -194,11 +192,6 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 				kitcehn_bg: path,
 				current_color_of_panel: target
 			});
-			// wip
-
-			// this.mainApp.vent.trigger("change_image", function(){
-			// 	return './src/images/posters/puuviljad-murul1.jpg';
-			// });
 		},
 		_changeScale: function(e){
 			var target = e.target.id;
@@ -208,10 +201,22 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			this.model._changeMirrow();
 		},
 		onRender: function() {
-			var self = this;
-			setTimeout(function(){
-				self._try_two();
-			}, 1000);
+			var self = this;			
+			function get_move(){
+				var el1 = document.getElementById('main-poster');
+				var el2 = document.getElementById('draggable');
+				setTimeout(function(){	
+					if(el1 !== null && el2 !== null){
+						self._try_two();
+					} else{						
+						get_move();				
+					}
+				}, 100);
+			}
+			get_move();
+			// setTimeout(function(){
+			// 	self._try_two();
+			// }, 1000);
 		},
 		onShow: function(){
 			// this._try_two();
@@ -285,21 +290,9 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 						// console.log('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
 					}
 
-					
-    				// console.log('x: ',left_img);
-    				// console.log('y: ',top_img);
-    				// changing Top: and Left:
+					// changing Top: and Left:
     				poster.css('top', top_img+plusing_elemts.y);
-    				poster.css('left', left_img+plusing_elemts.x);
-    				// console.log('poster left: ', poster.css('left'));
-    				// console.log('poster top: ', poster.css('top'));
-
-
-    				// console.log('====')    				
-    				// console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
-    				// console.log('------------------------------------')
-			    	// console.log('x: ',e.pageX,' y: ',e.pageY);
-    				// console.log('====')			    	
+    				poster.css('left', left_img+plusing_elemts.x);		    	
 			    };
 		    	document.onmouseup = function(e) {  		
 			        document.onmousemove = null;

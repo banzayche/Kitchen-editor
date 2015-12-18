@@ -1,23 +1,13 @@
 define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbonewreqr', 'backbonebabysitter', 'backbone', 'backbonemarionette', 'bootstrap'], function(kitchenMainView, chooseImageView) {
 	var deferred = Marionette.Deferred();
 	var mainApp;
-
-
-
-	
-	// window.addEventListener('click', function(e) {
-	//   console.log('screen: ' + e.screenX + 'x' + e.screenY + '\npage: ' + e.pageX + 'x' + e.pageY + '\nclient: ' + e.clientX + 'x' + e.clientY);
-	// }, false);
-
-	// $('#draggable').click(function(e) {
-	// 	console.log('test');
-	// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
-	// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
-	// 	console.log(x +'x'+ y);
-	// });
-
-
 	// return new Promise(function(resolve, reject) {
+	_.result(deferred, 'promise').then(function (target) {
+	    console.log("The App is compiled successfully!");
+	    $('.cssload-container').hide();
+	    mainApp.start();
+	});
+	var getReady = function(){
 			var default_paths_images = {
 			k1: './src/images/kitchen/k1-beige.png',
 			k2: './src/images/kitchen/k2-beige.png',
@@ -69,8 +59,7 @@ define(['kitchen','choose_image', 'jquery', 'jquery-ui', 'underscore', 'backbone
 			$(mainApp.imagesListView.el).parent().show(400);
 			$(mainApp.mainView.el).parent().hide(400);
 		});
-
-		// resolve(mainApp); // asynchronous "Hello, world!"
-		return mainApp;
-	// });	
+		deferred.resolve('true');
+}();
+	return 'App going to start';	
 });

@@ -26,7 +26,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		_getCategory: function(e){
 			var state = $(e.target).parent().attr('data-parent');
 			if( state === 'shutterstock'){
-				console.log(state);
 				this._shutterstock_category = $(e.target).attr('data-category');
 				this._sutterstock_images_view();
 			} else{
@@ -35,7 +34,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 			}			
 		},
 		_closeListImg: function(){
-			console.log('close')
 			this.mainApp.vent.trigger("close_images_list", function(){
 				return 'close list images';
 			});
@@ -47,11 +45,7 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		currentTheme: 0,
 		_shutterstock_category: 'animals',
 		onRender: function(){
-			this._showView()
-			// this.list_area.show(new Marionette.CollectionView({
-			// 	childView: item_list_view,
-			// 	collection: new Backbone.Collection(img_collection)
-			// }));
+			this._showView();
 		},
 		_main_images_view: function() {
 			var self = this;
@@ -66,7 +60,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 				},
 				_getSrc: function(){
 					var src = this.model.get('src');
-					console.log(src);
 					this.mainApp.vent.trigger("change_image", function(){
 						return src;
 					});
@@ -93,7 +86,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 				_getSrc: function(){
 					var src = this.model.attributes.assets.preview.url;
 
-					console.log(src);
 					this.mainApp.vent.trigger("change_image", function(){
 						return src;
 					});
@@ -108,7 +100,6 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		        }
 		    })
 		    .done(function (data) {
-		    	// console.log(data.data)
 		    	self.list_area.show(new Marionette.CollectionView({
 					childView: view_2,
 					collection: new Backbone.Collection(data.data)
@@ -116,27 +107,13 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 		    });	
 		},
 		_showView: function(){
-			// if(self._current_tab === 'main'){
-
-			// } else{
-
-			// }
 			this._main_images_view();
-			this._sutterstock_images_view();
-
-			
-			// var template;
-			// if(data === 'main'){
-			// 	template = _.template(img_el_template);
-			// } else{
-			// 	template = _.template(shutterstock_template_img);
-			// }		    
+			this._sutterstock_images_view();		    
 		},
 		onShow: function(){
 			this._show_hide_menu('main');
 		},
 		_show_hide_menu: function(data){
-			console.log('===================',data);
 			if(data === 'main'){
 				$('#accord_container #shutterstock_menu').hide();
 				$('#accord_container #accordion').show();

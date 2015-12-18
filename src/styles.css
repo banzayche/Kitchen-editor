@@ -1,11 +1,8 @@
-body{
-	background: rgba(4,4,4,.1);
-}
-#area-kitchen button{
+#editor_element #area-kitchen button{
     outline: none;
 }
 
-#main-kitchen{
+#editor_element #main-kitchen{
 	background: url(./images/kitchenbg.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -14,11 +11,11 @@ body{
 	margin: 20px auto;
 	position: relative;  
 }
-#main-kitchen>h2{
+#editor_element #main-kitchen>h2{
 	margin-top: 0;
 	padding-top: 20px;  
 }
-.kitchen-panel{
+#editor_element .kitchen-panel{
 	background-size: 100%;		
 	background-repeat: no-repeat !important; 
 	width: 668px; 
@@ -28,7 +25,7 @@ body{
 	left: 50px;
 	z-index: 10;
 }
-.k_wall{
+#editor_element .k_wall{
 	width: 638px;
     height: 165px;
     overflow: hidden;
@@ -37,7 +34,7 @@ body{
     top: 286px;
     left: 50px;
 }
-#crop-area{
+#editor_element #crop-area{
 	position: absolute;
     overflow: hidden;
     width: 684px;
@@ -46,15 +43,11 @@ body{
     left: 0px !important;
     top: 0px;
 }
-#crop-area>img{
+#editor_element #crop-area>img{
 	display: inherit;
     position: absolute;
-/*    width: 890px;
-    height: 270px;*/
-/*    left: 0px;*/
-    /*top: -100.115px;*/
 }
-.rotate_bg{
+#editor_element .rotate_bg{
 	width: 100px;
     height: 152px;
     background: rgba(245,245,245,.5);
@@ -67,7 +60,7 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.rotate{
+#editor_element .rotate{
 	width: 100px;
     height: 152px;
     position: absolute;
@@ -80,11 +73,11 @@ body{
     cursor: pointer;
     z-index: 99999999999999999999999999999999999999 !important;
 }
-#draggable{
+#editor_element #draggable{
 	cursor: move;
 }
 /*==============position left================*/ 
-.l_position #parent-draggable{
+#editor_element .l_position #parent-draggable{
 	width: 538px;
     height: 130px;
     z-index: 100;
@@ -92,15 +85,15 @@ body{
     top: 311px;
     left: 150px;
 }
-#parent-draggable>#draggable{
+#editor_element #parent-draggable>#draggable{
 	width: 100%;
 	height: 100%;
 }
-.l_position #crop-area{
+#editor_element .l_position #crop-area{
     left: -155px;
 }
 /*left-b*/
-.l_position.rotate-side .rotate_bg{
+#editor_element .l_position.rotate-side .rotate_bg{
 	width: 100px;
     height: 161px;
     background: rgba(245,245,245,.5);
@@ -113,7 +106,7 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.l_position.rotate-side .rotate{
+#editor_element .l_position.rotate-side .rotate{
 	width: 100px;
     height: 152px;
     position: absolute;
@@ -125,26 +118,26 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.l_position.rotate-side #crop-area{
+#editor_element .l_position.rotate-side #crop-area{
     left: 0px;
 }
-.l_position.rotate-side .k_wall{
+#editor_element .l_position.rotate-side .k_wall{
 	width: 406px;
     left: 67px;
 }
-.l_position.rotate-side #parent-draggable {
+#editor_element .l_position.rotate-side #parent-draggable {
 	width: 305px;
 	left: 68px;
 }
 /*=================position center=====================*/
-.c_position .kitchen-panel{
+#editor_element .c_position .kitchen-panel{
 	top: 190px;
 }
-.c_position .k_wall{
+#editor_element .c_position .k_wall{
 	width: 593px;
     left: 80px;
 }
-.c_position #parent-draggable{
+#editor_element .c_position #parent-draggable{
 	width: 592px;
     height: 130px;
     z-index: 100;
@@ -152,14 +145,14 @@ body{
     top: 321px;
     left: 81px;
 }
-.c_position #crop-area{
+#editor_element .c_position #crop-area{
     left: -145px;
 }
 /*================position right=================*/
-.r_position .k_wall{
+#editor_element .r_position .k_wall{
     left: 79px;
 }
-.r_position #parent-draggable{
+#editor_element .r_position #parent-draggable{
     width: 538px;
     height: 130px;
     z-index: 100;
@@ -168,7 +161,7 @@ body{
     left: 80px;
 }
 
-.r_position.rotate-main .rotate_bg{
+#editor_element .r_position.rotate-main .rotate_bg{
 	width: 100px;
     height: 152px;
     background: rgba(245,245,245,.5);
@@ -181,7 +174,7 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.r_position.rotate-main .rotate{
+#editor_element .r_position.rotate-main .rotate{
 	width: 100px;
     height: 152px;
     position: absolute;
@@ -193,11 +186,11 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.r_position #crop-area{
+#editor_element .r_position #crop-area{
     left: 0px;
 }
 /*right-b*/
-.r_position.rotate-side .rotate_bg{
+#editor_element .r_position.rotate-side .rotate_bg{
 	width: 100px;
     height: 161px;
     background: rgba(245,245,245,.5);
@@ -210,7 +203,7 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.r_position.rotate-side .rotate{
+#editor_element .r_position.rotate-side .rotate{
 	width: 100px;
     height: 152px;
     position: absolute;
@@ -222,27 +215,27 @@ body{
     font-size: 20px;
     cursor: pointer;
 }
-.r_position.rotate-side .k_wall{
+#editor_element .r_position.rotate-side .k_wall{
 	width: 406px;
     left: 51px;
 }
-.r_position.rotate-side #parent-draggable{
+#editor_element .r_position.rotate-side #parent-draggable{
     width: 306px;
     left: 152px;
 }
-.r_position.rotate-side #crop-area{
+#editor_element .r_position.rotate-side #crop-area{
     left: -444px;
 }
 /*==============controls=================*/
-#control-panel{
+#editor_element #control-panel{
     /*position: absolute;*/
     top: 100px;
 }
-#control-panel>div{
+#editor_element #control-panel>div{
     margin-bottom: 15px;
 }
 /*color*/
-#control-panel div.into-style{
+#editor_element #control-panel div.into-style{
     width: 139px;
     padding: 10px 0px 5px 20px;
     margin: 0 auto;
@@ -253,7 +246,7 @@ body{
     -moz-box-shadow: 0 1px 0 white, inset 0 1px 3px rgba(0, 0, 0, 0.45);
     box-shadow: 0 1px 0 white, inset 0 1px 3px rgba(0, 0, 0, 0.45);
 }
-#control-panel div.into-style>.color-button{
+#editor_element #control-panel div.into-style>.color-button{
     height: 16px;
     width: 16px;
     margin-left: 5px;
@@ -265,7 +258,7 @@ body{
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
-#control-panel .color-panel #color1{
+#editor_element #control-panel .color-panel #color1{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b5b5b+0,191919+100 */
     background: rgb(91,91,91); /* Old browsers */
     background: -moz-linear-gradient(top,  rgb(91,91,91) 0%, rgb(25,25,25) 100%); /* FF3.6-15 */
@@ -273,7 +266,7 @@ body{
     background: linear-gradient(to bottom,  rgb(91,91,91) 0%,rgb(25,25,25) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5b', endColorstr='#191919',GradientType=0 ); /* IE6-9 */  
 }
-#control-panel .color-panel #color2{
+#editor_element #control-panel .color-panel #color2{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfcfc+0,dedede+100 */
     background: rgb(252,252,252); /* Old browsers */
     background: -moz-linear-gradient(top,  rgb(252,252,252) 0%, rgb(222,222,222) 100%); /* FF3.6-15 */
@@ -281,7 +274,7 @@ body{
     background: linear-gradient(to bottom,  rgb(252,252,252) 0%,rgb(222,222,222) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#dedede',GradientType=0 ); /* IE6-9 */
 }
-#control-panel .color-panel #color3{
+#editor_element #control-panel .color-panel #color3{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cea86e+0,886035+100 */
     background: rgb(206,168,110); /* Old browsers */
     background: -moz-linear-gradient(top,  rgb(206,168,110) 0%, rgb(136,96,53) 100%); /* FF3.6-15 */
@@ -289,7 +282,7 @@ body{
     background: linear-gradient(to bottom,  rgb(206,168,110) 0%,rgb(136,96,53) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cea86e', endColorstr='#886035',GradientType=0 ); /* IE6-9 */
 }
-#control-panel .color-panel #color4{
+#editor_element #control-panel .color-panel #color4{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#70543a+0,58412c+100 */
     background: rgb(112,84,58); /* Old browsers */
     background: -moz-linear-gradient(top,  rgb(112,84,58) 0%, rgb(88,65,44) 100%); /* FF3.6-15 */
@@ -297,12 +290,12 @@ body{
     background: linear-gradient(to bottom,  rgb(112,84,58) 0%,rgb(88,65,44) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70543a', endColorstr='#58412c',GradientType=0 ); /* IE6-9 */
 }
-#control-panel .color-panel .color-button.active{
+#editor_element #control-panel .color-panel .color-button.active{
     opacity: 1;
     box-shadow: inset 0 0 4px black;
 }
 
-#control-panel .spec-button{
+#editor_element #control-panel .spec-button{
     display: block;
     border: none;
     width: 139px;
@@ -316,7 +309,7 @@ body{
     border-radius: 20px;
     text-shadow: 0 1px 0 white;
 }
-#control-panel  #minus{
+#editor_element #control-panel  #minus{
     display: inline-block;
     border-top-right-radius: 0px; 
     border-bottom-right-radius: 0px;
@@ -328,7 +321,7 @@ body{
     padding-top: 0px;
     line-height: 10px;
 }
-#control-panel  #plus{
+#editor_element #control-panel #plus{
     display: inline-block;
     border-top-left-radius: 0px; 
     border-bottom-left-radius: 0px;
@@ -339,30 +332,30 @@ body{
     padding-top: 0px;
     line-height: 10px;
 }
-.position-panel .without-style{
+#editor_element .position-panel .without-style{
     padding-left: 10px; 
 }
-.position-panel .position-button{
+#editor_element .position-panel .position-button{
     border: none;
     width: 44px;
     height: 30px;
     margin-left: 5px;
 }
-.position-panel .position-button#position-left{    
+#editor_element .position-panel .position-button#position-left{    
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -1559px no-repeat;
 }
-.position-panel .position-button#position-center{    
+#editor_element .position-panel .position-button#position-center{    
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -1732px no-repeat;
 }
-.position-panel .position-button#position-right{    
+#editor_element .position-panel .position-button#position-right{    
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -1599px no-repeat;
 }
 
-.position-panel .position-button.active, .position-panel .position-button:hover{    
+#editor_element .position-panel .position-button.active, #editor_element .position-panel .position-button:hover{    
     opacity: 0.4;
 }
 
-#main-kitchen>h2{
+#editor_element #main-kitchen>h2{
     width: 100%;
     left: 0;
     top: 26px;
@@ -373,27 +366,27 @@ body{
     font-weight: 300;
     text-align: center;
 }
-#control-panel h4{
+#editor_element #control-panel h4{
     font-size: 13px;
     color: #353535;
     line-height: 1.2;
     text-shadow: 0 1px 0 white;
 }
-#control-panel .text-on-button{
+#editor_element #control-panel .text-on-button{
     font-size: 13px;
     color: #353535;
     line-height: 1.2;
     text-shadow: 0 1px 0 white;
 }
 
-.l_position.rotate-side i {
+#editor_element .l_position.rotate-side i {
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -1317px no-repeat;
     width: 25px;
     height: 23px;
     position: relative;
     display: inline-block;
 }
-.l_position.rotate-main i {
+#editor_element .l_position.rotate-main i {
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -906px no-repeat;
     width: 25px;
     height: 24px;
@@ -401,14 +394,14 @@ body{
     position: relative;
     display: inline-block;
 }
-.r_position.rotate-main i {
+#editor_element .r_position.rotate-main i {
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -1317px no-repeat;
     width: 25px;
     height: 23px;
     position: relative;
     display: inline-block;
 }
-.r_position.rotate-side i {
+#editor_element .r_position.rotate-side i {
     background: url('./images/kitchen/icons-s18899eded5.png') 0 -906px no-repeat;
     width: 25px;
     height: 24px;
@@ -416,7 +409,7 @@ body{
     position: relative;
     display: inline-block;
 }
-.rotate .text-on-button{
+#editor_element .rotate .text-on-button{
     font-size: 13px;
     color: #353535;
     line-height: 1.2;
@@ -424,45 +417,41 @@ body{
 
 
 
-#crop-area{
-/*    z-index: 2000;
-    border: 1px solid red;*/
-}
-#crop-area, .k_wall {
+#editor_element #crop-area, .k_wall {
     overflow: hidden ;
 }
-#parent-draggable>#draggable.movement, .movement{
+#editor_element #parent-draggable>#draggable.movement, #editor_element .movement{
     width: 900px;
     height: 270px;
   /*  left: -5px;
     top: -5px;*/
 }
-#control-panel{
+#editor_element #control-panel{
     z-index: 99999999999999999999999999;
 }
-#parent-draggable>#draggable.movement{
+#editor_element #parent-draggable>#draggable.movement{
         /*background: rebeccapurple;*/
     /*top: -29px;*/
     position: absolute;
     /*background-color: red;*/
     /*left: -81px;*/
 }
-#area-kitchen{
+#editor_element #area-kitchen{
     overflow: hidden;
 }
-.c_position #crop-area {
+#editor_element .c_position #crop-area {
     width: 598px !important;
     top: 31px !important;
     height: 129px !important;
 }
-.c_position #main-poster{
+#editor_element .c_position #main-poster{
     width: 603px !important;
     height: 192px !important;
 }
-.l_position #main-poster, .r_position #main-poster{
+#editor_element .l_position #main-poster, #editor_element .r_position #main-poster{
     width: 652px !important;
     height: 200px !important;
 }
-.l_position #crop-area, .r_position #crop-area{
+#editor_element .l_position #crop-area, #editor_element .r_position #crop-area{
     width: 647px !important;
 }

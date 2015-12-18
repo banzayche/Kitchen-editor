@@ -2,9 +2,14 @@
 <html>
 <head>
 	<title>Demo</title>
+	<!-- this style not for app -->
+	<style>
+		body{background: rgba(4,4,4,.05) !important;}
+	</style>
+	<!-- \ -->
+
 	<!-- styles -->
-	
-    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300&subset=latin,cyrillic" rel="stylesheet" type="text/css">
     
     <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./dist/css/preloader.min.css">
@@ -14,7 +19,6 @@
 
 	<script src="./dist/vendor/require.js"></script>
 	<script type="text/javascript" src="dist/vendor/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="main.js"></script> -->
 	<script type="text/javascript">
 		requirejs.config({
 		    //By default load any module IDs from js/lib
@@ -22,66 +26,26 @@
 		    paths: {
 		        'jquery': './vendor/jquery.min',
 		        'bootstrap': './vendor/bootstrap.min',
-		        // 'backbone': '../bower_components/backbone/backbone-min',
-		        // 'backbonebabysitter': '../bower_components/backbone.babysitter/lib/backbone.babysitter.min',
-		        // 'backbonemarionette': '../bower_components/backbone.marionette/lib/backbone.marionette.min',
-		        // 'backbonewreqr': '../bower_components/backbone.wreqr/lib/backbone.wreqr.min',        
-		        // 'underscore': '../bower_components/underscore/underscore-min',
-		        // 'text': '../bower_components/text/text',
 		        'jquery-ui': './vendor/jquery-ui.min',
-		        // 'kitchen': './js/views/kitchen',
-		        // 'choose_image': './js/views/choose-image',
-		        // 'img_collection': './js/collections/img_collection',
-		        // 'app': './js/app'
 		        'img_collection': './img_collection',
 		        'app': 'app'
 		    }
-		    // shim: {
-		    //     'jquery-ui': {
-		    //         deps: ['jquery']
-		    //     },
-		    //     'backbone': {
-		    //         //These script dependencies should be loaded before loading
-		    //         //backbone.js
-		    //         deps: ['underscore', 'jquery'],
-		    //         //Once loaded, use the global 'Backbone' as the
-		    //         //module value.
-		    //         exports: 'Backbone'
-		    //     },
-		    //     'bootstrap': {
-		    //         deps: ['jquery']
-		    //     },
-		    //     'app': {
-		    //         deps: ['backbone']
-		    //     }
-		    // }
 		});
 
 		require(['app'], function(App){
 			console.log(App);
-			// App.then(function(App){
-			setTimeout(function(){
-				$('.cssload-container').hide();
-				App.start();
-			}, 700);
-				
-			// });
 		});
-	</script>
-	<script type="text/javascript">
-			
-	</script>
-	
+	</script>	
 </head>
 <body>
-	<div id='area-kitchen'>
-		
-	</div>
-	<div id="images_list">
-		
-	</div>
-	<div class="cssload-container">
-		<div class="cssload-speeding-wheel"></div>
+	<div id="editor_element">
+		<div id='area-kitchen'>
+		</div>
+		<div id="images_list">			
+		</div>
+		<div class="cssload-container">
+			<div class="cssload-speeding-wheel"></div>
+		</div>	
 	</div>
 </body>
 </html>
