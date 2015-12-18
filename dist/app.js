@@ -643,7 +643,7 @@ define('kitchen',['text!js/templates/kitchen_main.html', 'backbone', 'backbonema
 				// 	    ui.ceep = {};
 				// 	    ui.ceep.top = ui.position.top;
 				// 	    ui.ceep.left = ui.position.left;
-					    self._test();
+					    // self._test();
 				// 	    self.model.set({
 				// 	    	top_place: ui.ceep.top,
 				// 	    	left_place: ui.ceep.left
@@ -663,6 +663,9 @@ define('kitchen',['text!js/templates/kitchen_main.html', 'backbone', 'backbonema
 			// 	console.log(x +'x'+ y);
 			// });				
 			},1000);
+		},
+		onShow: function(){
+			this._test();
 		},
 		_test: function() {
 			// var ball = $('#draggable');
@@ -894,6 +897,7 @@ define('choose_image',['text!js/templates/choose_image.html', 'backbone', 'backb
 			var view_2 = Marionette.ItemView.extend({
 				mainApp: self.mainApp,
 				template: _.template(shutterstock_template_img),
+				className: 'counterImg',
 				ui: {
 					image: 'img'
 				},

@@ -83,6 +83,7 @@ define(['text!js/templates/choose_image.html', 'backbone', 'backbonemarionette',
 			var view_2 = Marionette.ItemView.extend({
 				mainApp: self.mainApp,
 				template: _.template(shutterstock_template_img),
+				className: 'counterImg',
 				ui: {
 					image: 'img'
 				},

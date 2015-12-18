@@ -208,36 +208,9 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
 			this.model._changeMirrow();
 		},
 		onRender: function() {
-			var self = this;
-			setTimeout(function() {
-				// $('#draggable').draggable({
-				// 	drag: function(event, ui) {						
-				// 	    // ui.position.left = 0;
-				// 	    // ceep position for image
-				// 	    var image = $('#main-poster');
-				// 	    ui.ceep = {};
-				// 	    ui.ceep.top = ui.position.top;
-				// 	    ui.ceep.left = ui.position.left;
-					    self._test();
-				// 	    self.model.set({
-				// 	    	top_place: ui.ceep.top,
-				// 	    	left_place: ui.ceep.left
-				// 	    });
-
-				// 	    // image.css('top', ui.ceep.top);
-				// 	    // image.css('left', ui.ceep.left);
-				// 	    // none draggable cube
-				// 	    ui.position.left = ui.originalPosition.left;
-				// 	    ui.position.top = ui.originalPosition.top;
-				//    }
-				// });
-
-			// $('#draggable').click(function(e) {
-			// 	var x = e.offsetX==undefined?e.layerX:e.offsetX;
-			// 	var y = e.offsetY==undefined?e.layerY:e.offsetY;
-			// 	console.log(x +'x'+ y);
-			// });				
-			},1000);
+		},
+		onShow: function(){
+			this._try_two();
 		},
 		_test: function() {
 			// var ball = $('#draggable');
@@ -363,13 +336,100 @@ define(['text!js/templates/kitchen_main.html', 'backbone', 'backbonemarionette',
     ball.ondragstart = function() {
         return false;
     };
-});
+});			
+		},
+		// ====================================================
+		_try_two: function(){
+			var y_start;
+			var x_start;
+			// инфа про картинку
+			var rect_img;
+			// инфа про один обьект
+			var rect_crop;
+			var ball = document.getElementById('draggable');
+    		var poster = $('#main-poster');
+    		var x_y_save = {y:0, x:0};
+    		ball.onmousedown = function(e) {			    
+			    x_y_save.y = e.pageY;
+			    x_y_save.x = e.pageX;
+			    console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
+
+    			document.onmousemove = function(e) {
+    				// инфа про картинку
+					rect_img = document.getElementById("main-poster").getBoundingClientRect();
+					// console.log('rect_img',rect_img);
+					// инфа про один обьект
+					rect_crop = document.getElementById("crop-area").getBoundingClientRect();
+					// console.log('rect_crop',rect_crop);
+					// -----------------------------------
+					var plusing_elemts={x:0,y:0};
+					// -----------------------------------
+					var top_img = poster.css('top');
+    				var left_img = poster.css('left');
+    				top_img = parseInt(top_img, 10);
+    				left_img = parseInt(left_img, 10);
+
+    				// =====check what is happened
+    				if(e.pageX>x_y_save.x){    					
+    					console.log("x - UP");
+    					x_y_save.x = e.pageX;
+    					plusing_elemts.x = 1;
+    				};
+    				if(e.pageY>x_y_save.y){
+    					console.log("y - UP");
+    					x_y_save.y = e.pageY;
+    					plusing_elemts.y = 1;
+    				};
+    				if(e.pageX<x_y_save.x){
+    					console.log("x - DOWN");
+    					x_y_save.x = e.pageX;
+    					plusing_elemts.x = -1;
+    				};
+    				if(e.pageY<x_y_save.y){
+    					console.log("y - DOWN");
+    					x_y_save.y = e.pageY;
+    					plusing_elemts.y = -1;    					
+    				};
+
+					// =====when do not need any events
+					if(rect_img.left > rect_crop.left){						
+			      		alert('wrong left. img: '+rect_img.left+'rect: '+rect_crop.left);
+					} else if(rect_img.top > rect_crop.top){
+						alert('wrong top. img: '+rect_img.top+'rect: '+rect_crop.top);				
+					} else if(rect_img.right < rect_crop.right){
+						alert('wrong right. img: '+rect_img.right+'rect: '+rect_crop.right);
+					} else if(rect_img.bottom < rect_crop.bottom){
+						alert('wrong bottom. img: '+rect_img.bottom+'rect: '+rect_crop.bottom);
+					}
+
+					
+    				
+    				// changing Top: and Left:
+    				poster.css('top', top_img+1);
+    				poster.css('left', top_img+1);
+    				console.log('poster left: ', poster.css('left'));
+    				console.log('poster top: ', poster.css('top'));
 
 
-
-			
-
-			
+    				console.log('====')    				
+    				console.log('x: ',x_y_save.x,' y: ',x_y_save.y);
+    				console.log('------------------------------------')
+			    	console.log('x: ',e.pageX,' y: ',e.pageY);
+    				console.log('====')			    	
+			    };
+		    	ball.onmouseup = function(e) {  		
+			        document.onmousemove = null;
+			        ball.onmouseup = null;
+			    };
+			    function done(){      	
+			      	document.onmousemove = null;
+			        ball.onmouseup = null;
+			    };    			
+    		};
+    		// prevent default event of browser
+    		ball.ondragstart = function() {
+			    return false;
+			};
 		}
 	});
 
